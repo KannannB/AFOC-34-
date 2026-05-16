@@ -1,0 +1,13 @@
+---
+const { services } = Astro.props;
+---
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3 px-4">
+    {services.map((service: { title: unknown; desc: unknown; }) => (
+      <div class="p-6 bg-white rounded-xl shadow">
+        <h3 class="font-semibold text-xl">{service.title}</h3>
+        <p class="mt-2 text-sm">{service.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

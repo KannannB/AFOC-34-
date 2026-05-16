@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage/LegalPage.astro';
+import siteData from '../data/site.json';
+
+const legalData = siteData.legal.mentionsLegales;
+---
+
+<Layout title={legalData.title} description="Mentions légales du site MonSite.">
+  <LegalPage type="mentionsLegales" />
+</Layout>

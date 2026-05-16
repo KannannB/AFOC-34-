@@ -1,0 +1,136 @@
+{
+  "seo": {
+    "defaultTitle": "AFOC 34 - Défense des Consommateurs et Locataires (Hérault)",
+    "defaultDescription": "L'AFOC 34 vous conseille et vous défend dans vos litiges de consommation, logement, banque et énergie à Montpellier, Sète et Béziers. Association agréée de défense des consommateurs.",
+    "ogImage": "/images/og-image-afoc34.jpg",
+    "keywords": "AFOC 34, défense consommateurs Montpellier, litige logement Hérault, association locataires Sète, aide juridique consommation Béziers"
+  },
+  "header": {
+    "logo": "AFOC34",
+    "logoLink": "/",
+    "navLinks": [
+      { "name": "Accueil", "url": "/" },
+      { "name": "Nos missions", "url": "/missions" },
+      { "name": "Permanences", "url": "/permanences" },
+      { "name": "Adhésion", "url": "/adhesion" },
+      { "name": "À propos", "url": "/about" },
+      { "name": "Contact", "url": "/contact" }
+    ]
+  },
+  "hero": {
+    "title": "AFOC 34 : Défense des Consommateurs et des Locataires dans l'Hérault.",
+    "subtitle": "Une association de proximité pour vous informer, vous conseiller et vous défendre face aux litiges du quotidien.",
+    "cta": { "label": "Besoin d'aide ? Contactez-nous", "url": "/contact" }
+  },
+  "services": [
+    {
+      "title": "Logement & HLM",
+      "desc": "Spécialiste du logement social et privé : charges, état des lieux, bails et Commissions de Concertation Locative (PCL).",
+      "icon": "home-icon"
+    },
+    {
+      "title": "Consommation",
+      "desc": "Protection face aux arnaques, litiges opérateurs internet, démarchage abusif, banques et assurances.",
+      "icon": "shopping-cart-icon"
+    },
+    {
+      "title": "Services Publics & Santé",
+      "desc": "Accompagnement dans vos relations avec les organismes sociaux (CAF, CPAM) et défense des services publics.",
+      "icon": "shield-check-icon"
+    }
+  ],
+  "permanences": {
+    "title": "Nos Permanences dans l'Hérault",
+    "description": "Retrouvez nos conseillers pour un accueil de proximité.",
+    "locations": [
+      {
+        "city": "Montpellier",
+        "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency",
+        "schedule": "Du lundi au vendredi sur rendez-vous"
+      },
+      {
+        "city": "Béziers",
+        "address": "Bourse du Travail, 57 Boulevard de la Liberté",
+        "schedule": "Consultez-nous pour les jours de passage"
+      },
+      {
+        "city": "Sète",
+        "address": "Maison des Syndicats, Rue Jean Moulin",
+        "schedule": "Permanences régulières"
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos de l'AFOC 34",
+    "description": "L'Association Force Ouvrière des Consommateurs de l'Hérault.",
+    "content": [
+      {
+        "sectionTitle": "Qui sommes-nous ?",
+        "text": "L'AFOC 34 est une association loi 1901 agréée, dédiée à la défense des droits des citoyens dans leur vie quotidienne de consommateur et de locataire."
+      },
+      {
+        "sectionTitle": "Notre force",
+        "text": "Indépendante et militante, l'AFOC 34 s'appuie sur un réseau de bénévoles et de juristes experts pour faire valoir vos droits face aux grands groupes et bailleurs."
+      },
+      {
+        "sectionTitle": "Représentation officielle",
+        "text": "Nous vous représentons au sein des instances départementales : commissions de surendettement, conseils d'administration d'organismes HLM, etc."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez l'AFOC 34",
+    "description": "Expliquez-nous votre situation pour une prise en charge rapide.",
+    "details": {
+      "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier",
+      "phone": "04 67 15 01 20",
+      "email": "afoc34@wanadoo.fr",
+      "access": "Tramway Lignes 1 & 3 - Arrêt Léon Blum - Parking à proximité"
+    }
+  },
+  "footer": {
+    "text": "© 2026 AFOC 34 - Association agréée de Défense des Consommateurs et Locataires",
+    "legalLinks": [
+      { "name": "Mentions légales", "url": "/mentions-legales" },
+      { "name": "Protection des données", "url": "/politique-confidentialite" },
+      { "name": "Adhérer", "url": "/adhesion" },
+      { "name": "Plan du site", "url": "//sitemap-index.xml" }
+    ]
+  },
+  "legal": {
+    "mentionsLegales": {
+      "title": "Mentions Légales",
+      "content": [
+        {
+          "sectionTitle": "Éditeur du site",
+          "text": "Association AFOC 34, Maison des Syndicats, 34000 Montpellier. SIRET : [À COMPLÉTER]."
+        },
+        {
+          "sectionTitle": "Responsable de publication",
+          "text": "Le Secrétaire Départemental de l'AFOC 34."
+        },
+        {
+          "sectionTitle": "Hébergement",
+          "text": "Le site est hébergé par [Nom de l'hébergeur], [Adresse de l'hébergeur]."
+        }
+      ]
+    },
+    "politiqueConfidentialite": {
+      "title": "Politique de confidentialité (RGPD)",
+      "content": [
+        {
+          "sectionTitle": "Collecte et Finalité",
+          "text": "Les informations recueillies sont nécessaires pour l'adhésion et le traitement de vos dossiers de litige. Elles sont strictement destinées à l'usage interne de l'association."
+        },
+        {
+          "sectionTitle": "Conservation des données",
+          "text": "Vos données personnelles sont conservées pendant la durée de votre adhésion ou le temps nécessaire à la résolution du litige, augmenté des délais de prescription légale (5 ans)."
+        },
+        {
+          "sectionTitle": "Vos droits",
+          "text": "Conformément à la loi informatique et libertés, vous disposez d'un droit d'accès, de rectification et de suppression en écrivant à afoc34@wanadoo.fr."
+        }
+      ]
+    }
+  }
+}

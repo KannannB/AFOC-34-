@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteData from '../data/site.json';
+import Button from '../components/UI/Button.astro';
+import Card from '../components/UI/Card.astro';
+
+const title = siteData.seo.defaultTitle;
+const description = siteData.seo.defaultDescription;
+const hero = siteData.hero;
+const services = siteData.services;
+const permanences = siteData.permanences;
+---
+
+<Layout title={title} description={description}>
+  <section class="bg-bleu from-primary to-secondary text-white py-24 text-center">
+    <div class="container mx-auto px-6">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">{hero.title}</h1>
+      <p class="text-lg md:text-2xl mb-10 text-blue-50 max-w-3xl mx-auto">{hero.subtitle}</p>
+      <Button href={hero.cta.url} variant="accent" size="lg">
+        {hero.cta.label}
+      </Button>
+    </div>
+  </section>
+
+  <section id="missions" class="container mx-auto py-20 px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-blue mb-4">Nos Domaines d'Intervention</h2>
+      <div class="h-1 w-20 bg-accent mx-auto"></div>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      {
+        services.map((service) => (
+          <Card>
+            <div class="p-2">
+              <h3 class="text-2xl font-bold mb-4 text-secondary">{service.title}</h3>
+              <p class="text-gray-700 leading-relaxed">{service.desc}</p>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-primary">{permanences.title}</h2>
+        <p class="text-gray-600 mt-2">{permanences.description}</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          permanences.locations.map((loc) => (
+            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+              <h4 class="text-xl font-bold text-accent mb-2">{loc.city}</h4>
+              <p class="text-sm text-gray-600 mb-3 italic">{loc.address}</p>
+              <p class="text-gray-800 font-medium">{loc.schedule}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="text-center mt-10">
+        <Button href="/permanences" variant="outline">Voir les détails des permanences</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 text-center container mx-auto px-6">
+    <div class="bg-secondary text-white rounded-3xl p-12 shadow-2xl">
+      <h2 class="text-3xl font-bold mb-6">Soutenez l'AFOC 34, adhérez !</h2>
+      <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+        Plus nous sommes nombreux, plus notre voix pèse face aux bailleurs et aux grandes
+        entreprises.
+      </p>
+      <Button href="/adhesion" variant="accent">Comment adhérer ?</Button>
+    </div>
+  </section>
+</Layout>

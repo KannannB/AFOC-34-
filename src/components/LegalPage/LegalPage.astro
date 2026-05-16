@@ -1,0 +1,36 @@
+---
+// /src/components/LegalPage/LegalPage.astro
+import siteData from '../../data/site.json';
+
+interface Props {
+  type: 'mentionsLegales' | 'politiqueConfidentialite' | 'cgv' | 'cookies';
+}
+
+const { type } = Astro.props;
+
+const legalPage = siteData.legal[type];
+
+if (!legalPage) {
+  throw new Error(`Type légal invalide : ${type}`);
+}
+
+const title = legalPage.title;
+const content = legalPage.content;
+---
+
+<section class="container mx-auto px-6 py-16">
+  <h1 class="text-4xl font-bold text-primary mb-8">{title}</h1>
+
+  <div class="space-y-8">
+    {content.map(section => (
+      <article class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-secondary mb-4">
+          {section.sectionTitle}
+        </h2>
+        <p class="text-text leading-relaxed">
+          {section.text}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

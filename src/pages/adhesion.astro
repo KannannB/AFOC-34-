@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteData from '../data/site.json';
+
+const { services } = siteData;
+---
+
+<Layout
+  title="Adhérer à l'AFOC 34"
+  description="Rejoignez l'AFOC 34 pour défendre vos droits de consommateur et de locataire."
+>
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-primary mb-4">Adhésion AFOC 34</h1>
+        <p class="text-xl text-gray-600">Ensemble, défendons vos droits au quotidien.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+          <form
+            name="adhesion"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            action="/success"
+            class="space-y-6"
+          >
+            <input type="hidden" name="form-name" value="adhesion" />
+
+            <p class="hidden">
+              <label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label>
+            </p>
+
+            <h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Vos Informations</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-bold mb-2">Prénom</label>
+                <input
+                  type="text"
+                  name="firstname"
+                  required
+                  class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2">Nom</label>
+                <input
+                  type="text"
+                  name="lastname"
+                  required
+                  class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+                />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-bold mb-2">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2">Téléphone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold mb-2">Adresse postale complète</label>
+              <textarea
+                name="address"
+                rows="2"
+                class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+              ></textarea>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-bold mb-2">Votre situation</label>
+                <select
+                  name="status"
+                  class="w-full p-3 rounded-xl border border-gray-300 outline-none"
+                >
+                  <option value="salarie">Salarié secteur privé/public</option>
+                  <option value="retraite">Retraité</option>
+                  <option value="etudiant">Étudiant / Lycéen</option>
+                  <option value="sans-profession">Sans profession</option>
+                  <option value="autre">Autre</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2">Votre logement</label>
+                <select
+                  name="housing"
+                  class="w-full p-3 rounded-xl border border-gray-300 outline-none"
+                >
+                  <option value="locataire-hlm">Locataire HLM</option>
+                  <option value="locataire-prive">Locataire parc privé</option>
+                  <option value="proprietaire">Propriétaire</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-accent hover:bg-secondary text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1"
+            >
+              Valider mon adhésion
+            </button>
+          </form>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-primary text-white p-8 rounded-3xl shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Pourquoi nous rejoindre ?</h3>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-accent text-lg">✓</span>
+                <span>Traitement prioritaire de vos litiges par nos conseillers.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent text-lg">✓</span>
+                <span>Accès à nos dossiers d'expertise Logement & Consommation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent text-lg">✓</span>
+                <span>Soutien à une association indépendante de défense des citoyens.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-3xl border border-dashed border-gray-300">
+            <h3 class="font-bold mb-2 text-secondary">Règlement de la cotisation</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              L'adhésion annuelle permet le fonctionnement de nos permanences locales dans
+              l'Hérault.
+            </p>
+            <a
+              href="https://afoc.net/adhesion"
+              target="_blank"
+              class="text-primary font-bold hover:underline text-sm"
+            >
+              Payer en ligne via le portail national →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

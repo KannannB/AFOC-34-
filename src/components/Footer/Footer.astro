@@ -1,0 +1,16 @@
+---
+import siteData from '../../data/site.json'; // <-- obligatoire
+---
+
+<footer class="p-4 text-center text-white bg-gray-800">
+  <p>{siteData.footer.text}</p>
+
+  <ul class="flex justify-center mt-4 space-x-4">
+    {/* Liens légaux */}
+    {siteData.footer.legalLinks.map((link) => (
+      <li>
+        <a href={link.url} class="text-white">{link.name}</a>
+      </li>
+    ))}
+  </ul>
+</footer>

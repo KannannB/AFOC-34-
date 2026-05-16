@@ -1,0 +1,26 @@
+---
+import siteData from '../../data/site.json';
+import logo from '../../img/LogoAfoc.png';
+---
+
+<header class="flex items-center justify-between p-4 text-bleu bg-white">
+  <a href={siteData?.header?.logoLink || '/'} class="hover:opacity-90 transition-opacity">
+    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="h-10 w-auto" />
+    <div class="text-xl font-bold logo">{siteData?.header?.logo || 'AFOC 34'}</div>
+  </a>
+
+  <nav>
+    <ul class="flex space-x-4">
+      {
+        /* Le ?. empêche l'erreur si navLinks n'est pas encore chargé */
+        siteData?.header?.navLinks?.map((link) => (
+          <li>
+            <a href={link.url} class="text-text-bleu hover:underline transition-all">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

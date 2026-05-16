@@ -1,0 +1,64 @@
+---
+/**
+ * Composant Button réutilisable
+ *
+ * Usage:
+ * <Button variant="primary" size="lg" href="/contact">Contactez-nous</Button>
+ */
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+} = Astro.props;
+
+// Variantes de couleurs
+const variants = {
+  primary: 'bg-primary text-white hover:bg-opacity-90 shadow-md hover:shadow-lg',
+  secondary: 'bg-secondary text-white hover:bg-opacity-90',
+  accent: 'bg-rouge text-white hover:bg-opacity-90',
+  outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
+  ghost: 'text-primary hover:bg-primary hover:bg-opacity-10',
+};
+
+// Tailles
+const sizes = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+// Classes de base
+const baseClasses = 'inline-block font-semibold rounded-lg transition-all duration-300';
+
+// Style disabled
+const disabledClasses = disabled ? 'opacity-60 cursor-not-allowed' : '';
+
+// Combinaison de toutes les classes
+const classes =
+  `${baseClasses} ${variants[variant]} ${sizes[size]} ${disabledClasses} ${className}`.trim();
+---
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} disabled={disabled} class={classes}>
+      <slot />
+    </button>
+  )
+}

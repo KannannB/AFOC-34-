@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageContent from '../components/PageContent/PageContent.astro';
+import siteData from '../data/site.json';
+
+const title = siteData.about.title;
+const description = siteData.about.description;
+const content = siteData.about.content;
+---
+
+<Layout title={title} description={description}>
+  <PageContent title={title} content={content} />
+</Layout>

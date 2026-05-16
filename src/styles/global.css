@@ -1,0 +1,46 @@
+/* /src/styles/global.css */
+
+/* Intégration de Tailwind CSS v4 */
+@import 'tailwindcss';
+
+/* Définition du thème personnalisé */
+@theme {
+  --color-primary: #1d4ed8;
+  --color-secondary: #2563eb;
+  --color-accent: #10b981;
+  --color-background: #f9fafb;
+  --color-text: #333333;
+  --color-bleu: #1b5162;
+  --color-rouge: #f03648;
+
+  /* Polices personnalisées */
+  --font-sans: 'Helvetica', 'Arial', sans-serif;
+  --font-serif: 'Georgia', serif;
+}
+
+/* Styles globaux de base */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
