@@ -16,6 +16,7 @@ const { Content } = await render(article);
 
 <Layout title={article.data.title}>
   <div class="max-w-3xl px-4 py-12 mx-auto">
+
     <nav class="mb-8 text-sm text-gray-500">
       <a href="/" class="hover:text-[var(--color-bleu)]">Accueil</a>
       <span class="mx-2">›</span>
@@ -28,12 +29,77 @@ const { Content } = await render(article);
       <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-rouge)] mb-3">
         Services Publics
       </p>
-      <h1
-        class="text-3xl md:text-4xl font-serif font-bold text-[var(--color-bleu)] leading-tight mb-4"
-      >
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-[var(--color-bleu)] leading-tight mb-4">
         {article.data.title}
       </h1>
-      <p class < header></p>
+      <p class="text-sm text-gray-500">
+        Publié le {article.data.date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+      </p>
+      {article.data.description && (
+        <p class="mt-4 text-lg text-gray-600 leading-relaxed border-l-4 border-[var(--color-bleu)] pl-4">
+          {article.data.description}
+        </p>
+      )}
     </header>
-  </div></Layout
->
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <div class="pt-8 mt-12 border-t border-gray-200">
+      <a href="/services-publics-sante" class="inline-flex items-center gap-2 text-[var(--color-bleu)] font-medium hover:gap-3 transition-all">
+        ← Retour aux articles Services Publics
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .prose h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .prose h3 {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+  .prose p {
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    color: #374151;
+  }
+  .prose ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0;
+  }
+  .prose ul li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: #374151;
+    line-height: 1.7;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .prose ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-rouge);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  .prose strong {
+    color: var(--color-bleu);
+    font-weight: 600;
+  }
+</style>

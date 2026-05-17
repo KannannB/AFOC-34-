@@ -81,4 +81,25 @@ const { Content } = await render(article);
   .prose ul {
     list-style: none;
     padding: 0;
-    margin:
+    margin: 1.2rem 0;
+  }
+  .prose ul li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: #374151;
+    line-height: 1.7;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .prose ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-rouge);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  .prose strong {
+    color: var(--color-bleu);
+    font-weight: 600;
+  }
+</style>
