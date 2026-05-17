@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('consommation');
+---
+
+<Layout
+  title="Consommation - AFOC 34"
+  description="Découvrez notre domaine d'intervention : consommation."
+>
+  <section class="py-16 bg-gray-50">
+    <div class="container px-6 mx-auto">
+      <h1 class="mb-6 text-4xl font-bold text-primary">Consommation</h1>
+
+      <p class="max-w-3xl mb-12 text-lg text-gray-600">
+        Retrouvez nos conseils et articles pour vous protéger contre les arnaques, les litiges avec
+        les opérateurs, banques, assurances et achats en ligne.
+      </p>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {
+          articles.map((article) => (
+            <a
+              href={`/consommation/${article.slug}`}
+              class="p-8 transition bg-white border border-gray-100 shadow-sm group rounded-2xl hover:shadow-lg"
+            >
+              <h2 class="mb-4 text-2xl font-bold transition text-secondary group-hover:text-red-600">
+                {article.data.title}
+              </h2>
+
+              <p class="leading-relaxed text-gray-600">{article.data.description}</p>
+
+              <div class="mt-6 font-semibold text-red-600 group-hover:underline">
+                Lire l’article →
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

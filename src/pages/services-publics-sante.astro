@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const articles = [
+  {
+    title: 'CAF : Comment contester une décision ?',
+    excerpt:
+      'Découvrez les démarches pour contester une décision de la CAF et défendre vos droits.',
+    href: '/services-publics-sante/caf-contestation',
+    date: 'Mai 2026',
+  },
+  {
+    title: 'CPAM : Vos droits en cas de litige',
+    excerpt: 'Arrêt maladie, remboursement, refus de prise en charge : les solutions possibles.',
+    href: '/services-publics-sante/litige-cpam',
+    date: 'Mai 2026',
+  },
+  {
+    title: 'Défendre l’accès aux services publics',
+    excerpt: 'L’AFOC 34 accompagne les usagers confrontés aux difficultés administratives.',
+    href: '/services-publics-sante/services-publics',
+    date: 'Mai 2026',
+  },
+];
+---
+
+<Layout
+  title="Services Publics & Santé - AFOC 34"
+  description="Découvrez notre domaine d'intervention : services publics."
+>
+  <section class="min-h-screen py-16 bg-gray-50">
+    <div class="container px-6 mx-auto">
+      <div class="mb-14">
+        <h1 class="mb-4 text-4xl font-bold text-primary">Services Publics & Santé</h1>
+
+        <p class="max-w-3xl text-lg text-gray-600">
+          Retrouvez nos conseils, informations et accompagnements concernant les organismes publics,
+          la santé et vos droits administratifs.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {
+          articles.map((article) => (
+            <a
+              href={article.href}
+              class="overflow-hidden transition bg-white border border-gray-100 shadow-sm group rounded-2xl hover:shadow-lg"
+            >
+              <div class="p-8">
+                <span class="text-sm text-gray-400">{article.date}</span>
+
+                <h2 class="mt-3 mb-4 text-2xl font-bold transition text-secondary group-hover:text-red-600">
+                  {article.title}
+                </h2>
+
+                <p class="leading-relaxed text-gray-600">{article.excerpt}</p>
+
+                <div class="mt-6 font-semibold text-red-600 group-hover:underline">
+                  Lire l’article →
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

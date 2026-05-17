@@ -25,19 +25,19 @@
   "services": [
     {
       "title": "Logement & HLM",
-      "href": "/Logement/logement-hlm",
+      "href": "/logement-hlm",
       "desc": "Spécialiste du logement social et privé : charges, état des lieux, bails et Commissions de Concertation Locative (PCL).",
       "icon": "home-icon"
     },
     {
       "title": "Consommation",
-      "href": "/Consommation/consommation",
+      "href": "/consommation",
       "desc": "Protection face aux arnaques, litiges opérateurs internet, démarchage abusif, banques et assurances.",
       "icon": "shopping-cart-icon"
     },
     {
       "title": "Services Publics & Santé",
-      "href": "/Services-public/services-publics-sante",
+      "href": "/services-publics-sante",
       "desc": "Accompagnement dans vos relations avec les organismes sociaux (CAF, CPAM) et défense des services publics.",
       "icon": "shield-check-icon"
     }
