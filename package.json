@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/vercel": "^9.0.5",
+    "@astrojs/vercel": "^8.0.4",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.17.1",
+    "astro": "^6.3.3",
     "astro-sitemap": "^1.0.0",
     "tree": "^0.1.3"
   },

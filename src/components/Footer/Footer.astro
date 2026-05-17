@@ -7,10 +7,15 @@ import siteData from '../../data/site.json'; // <-- obligatoire
 
   <ul class="flex justify-center mt-4 space-x-4">
     {/* Liens légaux */}
-    {siteData.footer.legalLinks.map((link) => (
-      <li>
-        <a href={link.url} class="text-white">{link.name}</a>
-      </li>
-    ))}
+    {
+      siteData.footer.legalLinks.map((link) => (
+        <li>
+          <a href={link.url} class="text-white">
+            {link.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
+  <p>Développé par Kannann - K4Y DIGITAL</p>
 </footer>

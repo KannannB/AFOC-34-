@@ -3,9 +3,9 @@ import siteData from '../../data/site.json';
 import logo from '../../img/LogoAfoc.png';
 ---
 
-<header class="flex items-center justify-between p-4 text-bleu bg-white">
-  <a href={siteData?.header?.logoLink || '/'} class="hover:opacity-90 transition-opacity">
-    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="h-10 w-auto" />
+<header class="flex items-center justify-between p-4 bg-white text-bleu">
+  <a href={siteData?.header?.logoLink || '/'} class="transition-opacity hover:opacity-90">
+    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="w-auto h-10" />
     <div class="text-xl font-bold logo">{siteData?.header?.logo || 'AFOC 34'}</div>
   </a>
 
@@ -15,7 +15,7 @@ import logo from '../../img/LogoAfoc.png';
         /* Le ?. empêche l'erreur si navLinks n'est pas encore chargé */
         siteData?.header?.navLinks?.map((link) => (
           <li>
-            <a href={link.url} class="text-text-bleu hover:underline transition-all">
+            <a href={link.url} class="font-bold transition-all text-text-bleu hover:underline">
               {link.name}
             </a>
           </li>

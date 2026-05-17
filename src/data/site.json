@@ -25,16 +25,19 @@
   "services": [
     {
       "title": "Logement & HLM",
+      "href": "/Logement/logement-hlm",
       "desc": "Spécialiste du logement social et privé : charges, état des lieux, bails et Commissions de Concertation Locative (PCL).",
       "icon": "home-icon"
     },
     {
       "title": "Consommation",
+      "href": "/Consommation/consommation",
       "desc": "Protection face aux arnaques, litiges opérateurs internet, démarchage abusif, banques et assurances.",
       "icon": "shopping-cart-icon"
     },
     {
       "title": "Services Publics & Santé",
+      "href": "/Services-public/services-publics-sante",
       "desc": "Accompagnement dans vos relations avec les organismes sociaux (CAF, CPAM) et défense des services publics.",
       "icon": "shield-check-icon"
     }
@@ -66,15 +69,23 @@
     "content": [
       {
         "sectionTitle": "Qui sommes-nous ?",
-        "text": "L'AFOC 34 est une association loi 1901 agréée, dédiée à la défense des droits des citoyens dans leur vie quotidienne de consommateur et de locataire."
+        "text": "L’Association Force Ouvrière Consommateurs (AFOC) réunit des femmes et des hommes engagés pour la défense des consommateurs et des locataires, dans un esprit d’indépendance et de solidarité. Créée en 1974, l’AFOC agit pour promouvoir et défendre les intérêts des consommateurs au quotidien."
       },
       {
-        "sectionTitle": "Notre force",
-        "text": "Indépendante et militante, l'AFOC 34 s'appuie sur un réseau de bénévoles et de juristes experts pour faire valoir vos droits face aux grands groupes et bailleurs."
+        "sectionTitle": "L'AFOC de l'Hérault",
+        "text": "L’AFOC 34 a été créée en octobre 1975 afin d’accompagner et défendre les habitants de l’Hérault face aux litiges liés à la consommation, au logement et aux services du quotidien. L’association intervient auprès des particuliers grâce à l’information, au conseil et à l’accompagnement amiable."
       },
       {
-        "sectionTitle": "Représentation officielle",
-        "text": "Nous vous représentons au sein des instances départementales : commissions de surendettement, conseils d'administration d'organismes HLM, etc."
+        "sectionTitle": "Nos missions",
+        "text": "Nous informons les consommateurs sur leurs droits, accompagnons les démarches de règlement amiable des litiges et représentons les usagers dans différentes commissions de concertation : logement social, télécommunications, énergie, commerce ou services publics."
+      },
+      {
+        "sectionTitle": "Nos domaines d'intervention",
+        "text": "Nous intervenons dans de nombreux domaines : logement et HLM, achats en ligne, assurances, banques, automobile, téléphonie mobile, internet, télévision, voyages, prestations de services et litiges de consommation."
+      },
+      {
+        "sectionTitle": "Une représentation officielle",
+        "text": "L’AFOC est membre du Conseil National de la Consommation et représente les consommateurs et les locataires dans différentes instances locales et départementales, notamment au sein des organismes HLM."
       }
     ]
   },

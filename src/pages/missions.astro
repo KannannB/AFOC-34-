@@ -11,9 +11,9 @@ const { services } = siteData;
   description="Découvrez nos domaines d'intervention : logement, consommation et services publics."
 >
   <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <h1 class="text-4xl font-bold text-primary mb-6">Nos Missions</h1>
-      <p class="text-xl text-gray-600 mb-12 max-w-3xl">
+    <div class="container px-6 mx-auto">
+      <h1 class="mb-6 text-4xl font-bold text-primary">Nos Missions</h1>
+      <p class="max-w-3xl mb-12 text-xl text-gray-600">
         L'AFOC 34 accompagne ses adhérents dans la résolution de litiges quotidiens et siège dans de
         nombreuses instances pour défendre vos intérêts.
       </p>
@@ -21,13 +21,18 @@ const { services } = siteData;
       <div class="grid gap-8">
         {
           services.map((service) => (
-            <div class="bg-white p-8 rounded-2xl shadow-sm border-l-8 border-accent flex flex-col md:flex-row md:items-center justify-between">
+            <div class="flex flex-col justify-between p-8 bg-white border-l-8 shadow-sm rounded-2xl border-rouge md:flex-row md:items-center">
               <div class="md:w-2/3">
-                <h2 class="text-2xl font-bold text-secondary mb-4">{service.title}</h2>
-                <p class="text-gray-700 text-lg">{service.desc}</p>
+                <h2 class="mb-4 text-2xl font-bold text-secondary">
+                  {' '}
+                  <a href={service.href} class="hover:underline">
+                    {service.title}
+                  </a>
+                </h2>
+                <p class="text-lg text-gray-700">{service.desc}</p>
               </div>
               <div class="mt-6 md:mt-0">
-                <a href="/contact" class="text-accent font-bold hover:underline">
+                <a href="/contact" class="font-bold text-rouge hover:underline">
                   Besoin d'aide sur ce sujet ? →
                 </a>
               </div>
