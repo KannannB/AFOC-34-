@@ -16,7 +16,21 @@ const { title, description } = Astro.props;
     <meta name="description" content={description || siteData.hero.subtitle} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#2563eb" />
-  </head>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script></head
+  >
+
+  <script>
+    const identity = window['netlifyIdentity'];
+    if (identity) {
+      identity.on('init', (user) => {
+        if (!user) {
+          identity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
   <body class="flex flex-col min-h-screen">
     <Header />
     <main class="flex-1">

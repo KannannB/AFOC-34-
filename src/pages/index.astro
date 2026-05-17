@@ -32,7 +32,11 @@ const permanences = siteData.permanences;
         services.map((service) => (
           <Card>
             <div class="p-2">
-              <h3 class="mb-4 text-2xl font-bold text-secondary">{service.title}</h3>
+              <h3 class="mb-4 text-2xl font-bold text-secondary">
+                <a href={service.href} class="hover:underline">
+                  {service.title}
+                </a>
+              </h3>
               <p class="leading-relaxed text-gray-700">{service.desc}</p>
             </div>
           </Card>

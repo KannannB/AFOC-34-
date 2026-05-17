@@ -1,68 +1,220 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-const articles = [
-  {
-    title: 'CAF : Comment contester une décision ?',
-    excerpt:
-      'Découvrez les démarches pour contester une décision de la CAF et défendre vos droits.',
-    href: '/services-publics-sante/caf-contestation',
-    date: 'Mai 2026',
-  },
-  {
-    title: 'CPAM : Vos droits en cas de litige',
-    excerpt: 'Arrêt maladie, remboursement, refus de prise en charge : les solutions possibles.',
-    href: '/services-publics-sante/litige-cpam',
-    date: 'Mai 2026',
-  },
-  {
-    title: 'Défendre l’accès aux services publics',
-    excerpt: 'L’AFOC 34 accompagne les usagers confrontés aux difficultés administratives.',
-    href: '/services-publics-sante/services-publics',
-    date: 'Mai 2026',
-  },
-];
+const articles = await getCollection('services-public');
+const articlesTriés = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const data = articlesTriés.map((article, i) => {
+  return {
+    title: article.data.title,
+    description: article.data.description,
+    dateFormatée: article.data.date.toLocaleDateString('fr-FR', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }),
+    href: '/services-public/' + article.id,
+    delay: String(i * 80) + 'ms',
+  };
+});
 ---
 
-<Layout
-  title="Services Publics & Santé - AFOC 34"
-  description="Découvrez notre domaine d'intervention : services publics."
->
-  <section class="min-h-screen py-16 bg-gray-50">
-    <div class="container px-6 mx-auto">
-      <div class="mb-14">
-        <h1 class="mb-4 text-4xl font-bold text-primary">Services Publics & Santé</h1>
+<Layout title="Services Publics & Santé">
+  <div class="hero-services">
+    <div class="hero-inner">
+      <p class="hero-label">Nos dossiers</p>
+      <h1>Services Publics & Santé</h1>
+      <p class="hero-sub">
+        Retrouvez nos conseils, informations et accompagnements concernant les organismes publics,
+        la santé et vos droits administratifs.
+      </p>
+    </div>
+  </div>
 
-        <p class="max-w-3xl text-lg text-gray-600">
-          Retrouvez nos conseils, informations et accompagnements concernant les organismes publics,
-          la santé et vos droits administratifs.
-        </p>
-      </div>
-
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {
-          articles.map((article) => (
-            <a
-              href={article.href}
-              class="overflow-hidden transition bg-white border border-gray-100 shadow-sm group rounded-2xl hover:shadow-lg"
-            >
-              <div class="p-8">
-                <span class="text-sm text-gray-400">{article.date}</span>
-
-                <h2 class="mt-3 mb-4 text-2xl font-bold transition text-secondary group-hover:text-red-600">
-                  {article.title}
-                </h2>
-
-                <p class="leading-relaxed text-gray-600">{article.excerpt}</p>
-
-                <div class="mt-6 font-semibold text-red-600 group-hover:underline">
-                  Lire l’article →
-                </div>
+  <section class="articles-section">
+    <div class="articles-grid">
+      {
+        data.length === 0 ? (
+          <p class="empty">Aucun article publié pour le moment.</p>
+        ) : (
+          data.map((article) => (
+            <a href={article.href} class="card" style={'animation-delay:' + article.delay}>
+              <div class="card-top">
+                <span class="card-tag">Services Publics</span>
+                <span class="card-date">{article.dateFormatée}</span>
+              </div>
+              <h2 class="card-title">{article.title}</h2>
+              {article.description && <p class="card-desc">{article.description}</p>}
+              <div class="card-footer">
+                <span class="card-link">
+                  Lire l'article <span class="arrow">→</span>
+                </span>
               </div>
             </a>
           ))
-        }
-      </div>
+        )
+      }
     </div>
   </section>
 </Layout>
+
+<style>
+  .hero-services {
+    background-color: var(--color-bleu);
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-services::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--color-rouge);
+    opacity: 0.08;
+    border-radius: 50%;
+    transform: translate(30%, 40%);
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-rouge);
+    margin-bottom: 0.75rem;
+  }
+  .hero-services h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+  .hero-sub {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .articles-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e8ecf0;
+    border-radius: 10px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27, 81, 98, 0.12);
+    border-color: var(--color-bleu);
+  }
+  .card:hover .arrow {
+    transform: translateX(4px);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-rouge);
+    background: rgba(240, 54, 72, 0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+  }
+  .card-date {
+    font-size: 0.78rem;
+    color: #9ca3af;
+  }
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+    line-height: 1.4;
+    margin: 0 0 0.75rem;
+  }
+  .card-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-footer {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+  }
+  .card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-bleu);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  .empty {
+    color: #9ca3af;
+    font-style: italic;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 640px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

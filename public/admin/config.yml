@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: 'public/img/articles'
+public_folder: '/img/articles'
+
+collections:
+  - name: 'consommation'
+    label: 'Consommation'
+    folder: 'src/content/consommation'
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Titre', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Contenu', name: 'body', widget: 'markdown' }
+
+  - name: 'logement'
+    label: 'Logement'
+    folder: 'src/content/logement'
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Titre', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Contenu', name: 'body', widget: 'markdown' }
+
+  - name: 'services-public'
+    label: 'Services Publics'
+    folder: 'src/content/services-public'
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Titre', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Contenu', name: 'body', widget: 'markdown' }
