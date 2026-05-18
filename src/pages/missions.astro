@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
-import Card from '../components/UI/Card.astro';
 
 const { services } = siteData;
 ---
@@ -10,36 +9,158 @@ const { services } = siteData;
   title="Nos Missions - AFOC 34"
   description="Découvrez nos domaines d'intervention : logement, consommation et services publics."
 >
-  <section class="py-16 bg-gray-50">
-    <div class="container px-6 mx-auto">
-      <h1 class="mb-6 text-4xl font-bold text-primary">Nos Missions</h1>
-      <p class="max-w-3xl mb-12 text-xl text-gray-600">
+  <div class="hero-missions">
+    <div class="hero-inner">
+      <p class="hero-label">Ce que nous faisons</p>
+      <h1>Nos Missions</h1>
+      <p class="hero-sub">
         L'AFOC 34 accompagne ses adhérents dans la résolution de litiges quotidiens et siège dans de
         nombreuses instances pour défendre vos intérêts.
       </p>
+    </div>
+  </div>
 
-      <div class="grid gap-8">
-        {
-          services.map((service) => (
-            <div class="flex flex-col justify-between p-8 bg-white border-l-8 shadow-sm rounded-2xl border-rouge md:flex-row md:items-center">
-              <div class="md:w-2/3">
-                <h2 class="mb-4 text-2xl font-bold text-secondary">
-                  {' '}
-                  <a href={service.href} class="hover:underline">
-                    {service.title}
-                  </a>
-                </h2>
-                <p class="text-lg text-gray-700">{service.desc}</p>
-              </div>
-              <div class="mt-6 md:mt-0">
-                <a href="/contact" class="font-bold text-rouge hover:underline">
-                  Besoin d'aide sur ce sujet ? →
+  <section class="container mx-auto px-6 py-16">
+    <div class="grid gap-6">
+      {
+        services.map((service) => (
+          <div class="mission-card">
+            <div class="mission-body">
+              <h2 class="mission-title">{service.title}</h2>
+              <p class="mission-desc">{service.desc}</p>
+              <div class="mission-actions">
+                <a href={service.href} class="btn-primary">
+                  Voir les articles →
+                </a>
+                <a href="/contact" class="btn-secondary">
+                  Besoin d'aide sur ce sujet ?
                 </a>
               </div>
             </div>
-          ))
-        }
-      </div>
+          </div>
+        ))
+      }
     </div>
   </section>
 </Layout>
+
+<style>
+  .hero-missions {
+    background-color: var(--color-bleu);
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-missions::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--color-rouge);
+    opacity: 0.08;
+    border-radius: 50%;
+    transform: translate(30%, 40%);
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-rouge);
+    margin-bottom: 0.75rem;
+  }
+  .hero-missions h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+  .hero-sub {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    max-width: 600px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .mission-card {
+    background: #ffffff;
+    border: 1px solid #e8ecf0;
+    border-left: 6px solid var(--color-rouge);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .mission-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(27, 81, 98, 0.1);
+  }
+  .mission-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+    margin-bottom: 0.75rem;
+  }
+  .mission-desc {
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.75;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+  .mission-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-bleu);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover {
+    opacity: 0.85;
+  }
+  .btn-secondary {
+    display: inline-block;
+    color: var(--color-rouge);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+    padding-bottom: 2px;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-rouge);
+  }
+
+  @media (max-width: 640px) {
+    .mission-card {
+      padding: 1.5rem;
+    }
+    .mission-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
