@@ -3,6 +3,8 @@ backend:
   repo: KannannB/AFOC-34-
   branch: main
 
+locale: fr
+
 media_folder: 'public/img/articles'
 public_folder: '/img/articles'
 
