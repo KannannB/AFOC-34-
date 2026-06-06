@@ -36,9 +36,9 @@
       "icon": "shopping-cart-icon"
     },
     {
-      "title": "Services Publics & Santé",
-      "href": "/services-publics-sante",
-      "desc": "Accompagnement dans vos relations avec les organismes sociaux (CAF, CPAM) et défense des services publics.",
+      "title": "Conseils",
+      "href": "/conseils",
+      "desc": "Nos bénévoles vous conseillent et vous accompagnent, sur les démarches administratives et à toute situation nécessitant un appui juridique ou pratiques.",
       "icon": "shield-check-icon"
     }
   ],
@@ -95,7 +95,7 @@
     "details": {
       "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier",
       "phone": "04 67 15 01 20",
-      "email": "afoc34@gmail.com.fr",
+      "email": "afoc34@gmail.com",
       "access": "Tramway Lignes 1 - Arrêt Léon Blum - Parking à proximité"
     }
   },

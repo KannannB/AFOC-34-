@@ -17,8 +17,8 @@ export const collections = {
     loader: glob({ pattern: '**/*.md', base: './src/content/logement' }),
     schema: articleSchema,
   }),
-  'services-public': defineCollection({
-    loader: glob({ pattern: '**/*.md', base: './src/content/services-public' }),
+  conseils: defineCollection({
+    loader: glob({ pattern: '**/*.md', base: './src/content/conseils' }),
     schema: articleSchema,
   }),
 };

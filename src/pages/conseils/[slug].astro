@@ -3,43 +3,52 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const articles = await getCollection('services-public');
+  const articles = await getCollection('conseils');
   return articles.map((article) => ({
     params: { slug: article.id },
   }));
 }
 
 const { slug } = Astro.params;
-const article = await getEntry('services-public', slug);
+const article = await getEntry('conseils', slug);
 const { Content } = await render(article);
 ---
 
 <Layout title={article.data.title}>
   <div class="max-w-3xl px-4 py-12 mx-auto">
-
     <nav class="mb-8 text-sm text-gray-500">
       <a href="/" class="hover:text-[var(--color-bleu)]">Accueil</a>
       <span class="mx-2">›</span>
-      <a href="/services-publics-sante" class="hover:text-[var(--color-bleu)]">Services Publics</a>
+      <a href="/conseils" class="hover:text-[var(--color-bleu)]">Conseils</a>
       <span class="mx-2">›</span>
       <span class="text-gray-700">{article.data.title}</span>
     </nav>
 
     <header class="mb-10 pb-8 border-b-2 border-[var(--color-rouge)]">
       <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-rouge)] mb-3">
-        Services Publics
+        Conseils
       </p>
-      <h1 class="text-3xl md:text-4xl font-serif font-bold text-[var(--color-bleu)] leading-tight mb-4">
+      <h1
+        class="text-3xl md:text-4xl font-serif font-bold text-[var(--color-bleu)] leading-tight mb-4"
+      >
         {article.data.title}
       </h1>
       <p class="text-sm text-gray-500">
-        Publié le {article.data.date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+        Publié le {
+          article.data.date.toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })
+        }
       </p>
-      {article.data.description && (
-        <p class="mt-4 text-lg text-gray-600 leading-relaxed border-l-4 border-[var(--color-bleu)] pl-4">
-          {article.data.description}
-        </p>
-      )}
+      {
+        article.data.description && (
+          <p class="mt-4 text-lg text-gray-600 leading-relaxed border-l-4 border-[var(--color-bleu)] pl-4">
+            {article.data.description}
+          </p>
+        )
+      }
     </header>
 
     <div class="prose">
@@ -47,8 +56,11 @@ const { Content } = await render(article);
     </div>
 
     <div class="pt-8 mt-12 border-t border-gray-200">
-      <a href="/services-publics-sante" class="inline-flex items-center gap-2 text-[var(--color-bleu)] font-medium hover:gap-3 transition-all">
-        ← Retour aux articles Services Publics
+      <a
+        href="/conseils"
+        class="inline-flex items-center gap-2 text-[var(--color-bleu)] font-medium hover:gap-3 transition-all"
+      >
+        ← Retour aux Conseils
       </a>
     </div>
   </div>

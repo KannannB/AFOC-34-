@@ -35,9 +35,9 @@ collections:
       - { label: 'Résumé', name: 'description', widget: 'text' }
       - { label: 'Contenu', name: 'body', widget: 'markdown' }
 
-  - name: 'services-public'
-    label: 'Services Publics'
-    folder: 'src/content/services-public'
+  - name: 'conseils'
+    label: 'Conseils'
+    folder: 'src/content/conseils'
     create: true
     delete: true
     slug: '{{slug}}'

@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const articles = await getCollection('services-public');
+const articles = await getCollection('conseils');
 const articlesTriés = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const data = articlesTriés.map((article, i) => {
@@ -14,17 +14,17 @@ const data = articlesTriés.map((article, i) => {
       month: 'long',
       year: 'numeric',
     }),
-    href: '/services-public/' + article.id,
+    href: '/conseils/' + article.id,
     delay: String(i * 80) + 'ms',
   };
 });
 ---
 
-<Layout title="Services Publics & Santé">
-  <div class="hero-services">
+<Layout title="Conseils">
+  <div class="hero-conseils">
     <div class="hero-inner">
       <p class="hero-label">Nos dossiers</p>
-      <h1>Services Publics & Santé</h1>
+      <h1>Conseils</h1>
       <p class="hero-sub">
         Retrouvez nos conseils, informations et accompagnements concernant les organismes publics,
         la santé et vos droits administratifs.
@@ -41,7 +41,7 @@ const data = articlesTriés.map((article, i) => {
           data.map((article) => (
             <a href={article.href} class="card" style={'animation-delay:' + article.delay}>
               <div class="card-top">
-                <span class="card-tag">Services Publics</span>
+                <span class="card-tag">Conseils</span>
                 <span class="card-date">{article.dateFormatée}</span>
               </div>
               <h2 class="card-title">{article.title}</h2>
@@ -60,13 +60,13 @@ const data = articlesTriés.map((article, i) => {
 </Layout>
 
 <style>
-  .hero-services {
+  .hero-conseils {
     background-color: var(--color-bleu);
     padding: 4rem 1.5rem 3rem;
     position: relative;
     overflow: hidden;
   }
-  .hero-services::after {
+  .hero-conseils::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -92,7 +92,7 @@ const data = articlesTriés.map((article, i) => {
     color: var(--color-rouge);
     margin-bottom: 0.75rem;
   }
-  .hero-services h1 {
+  .hero-conseils h1 {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 5vw, 3.2rem);
     color: #ffffff;
@@ -125,10 +125,7 @@ const data = articlesTriés.map((article, i) => {
     padding: 1.75rem;
     text-decoration: none;
     color: inherit;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     animation: fadeUp 0.4s ease both;
   }
   .card:hover {
@@ -136,9 +133,7 @@ const data = articlesTriés.map((article, i) => {
     box-shadow: 0 12px 32px rgba(27, 81, 98, 0.12);
     border-color: var(--color-bleu);
   }
-  .card:hover .arrow {
-    transform: translateX(4px);
-  }
+  .card:hover .arrow { transform: translateX(4px); }
   .card-top {
     display: flex;
     align-items: center;
@@ -155,10 +150,7 @@ const data = articlesTriés.map((article, i) => {
     padding: 0.25rem 0.6rem;
     border-radius: 20px;
   }
-  .card-date {
-    font-size: 0.78rem;
-    color: #9ca3af;
-  }
+  .card-date { font-size: 0.78rem; color: #9ca3af; }
   .card-title {
     font-family: var(--font-serif);
     font-size: 1.15rem;
@@ -191,10 +183,7 @@ const data = articlesTriés.map((article, i) => {
     align-items: center;
     gap: 0.4rem;
   }
-  .arrow {
-    display: inline-block;
-    transition: transform 0.2s ease;
-  }
+  .arrow { display: inline-block; transition: transform 0.2s ease; }
   .empty {
     color: #9ca3af;
     font-style: italic;
@@ -203,18 +192,10 @@ const data = articlesTriés.map((article, i) => {
     padding: 3rem;
   }
   @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   @media (max-width: 640px) {
-    .articles-grid {
-      grid-template-columns: 1fr;
-    }
+    .articles-grid { grid-template-columns: 1fr; }
   }
 </style>
