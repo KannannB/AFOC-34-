@@ -3,19 +3,24 @@ import siteData from '../../data/site.json';
 import logo from '../../img/LogoAfoc.png';
 ---
 
-<header class="flex items-center justify-between p-4 bg-white text-bleu">
-  <a href={siteData?.header?.logoLink || '/'} class="transition-opacity hover:opacity-90">
-    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="w-auto h-10" />
-    <div class="text-xl font-bold logo">{siteData?.header?.logo || 'AFOC 34'}</div>
+<header class="header">
+  <a href={siteData?.header?.logoLink || '/'} class="header-logo">
+    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="logo-img" />
+    <span class="logo-text">{siteData?.header?.logo || 'AFOC 34'}</span>
   </a>
 
-  <nav>
-    <ul class="flex space-x-4">
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav" id="nav">
+    <ul class="nav-list">
       {
-        /* Le ?. empêche l'erreur si navLinks n'est pas encore chargé */
         siteData?.header?.navLinks?.map((link) => (
           <li>
-            <a href={link.url} class="font-bold transition-all text-text-bleu hover:underline">
+            <a href={link.url} class="nav-link">
               {link.name}
             </a>
           </li>
@@ -24,3 +29,157 @@ import logo from '../../img/LogoAfoc.png';
     </ul>
   </nav>
 </header>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+
+  burger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    burger.classList.toggle('burger-open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      burger.classList.remove('burger-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e8ecf0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .header-logo:hover {
+    opacity: 0.85;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 6px;
+    transition:
+      background 0.15s,
+      color 0.15s;
+  }
+  .nav-link:hover {
+    background: rgba(27, 81, 98, 0.08);
+    color: var(--color-bleu);
+  }
+
+  /* Burger */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .burger:hover {
+    background: rgba(27, 81, 98, 0.08);
+  }
+
+  .burger span {
+    display: block;
+    height: 2px;
+    background: var(--color-bleu);
+    border-radius: 2px;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .burger-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .burger-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .burger {
+      display: flex;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-bottom: 1px solid #e8ecf0;
+      box-shadow: 0 8px 24px rgba(27, 81, 98, 0.1);
+    }
+
+    .nav-open {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0.75rem;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+  }
+</style>
