@@ -114,15 +114,27 @@
       "content": [
         {
           "sectionTitle": "Éditeur du site",
-          "text": "Association AFOC 34, Maison des Syndicats, 34000 Montpellier. SIRET : [À COMPLÉTER]."
+          "text": "Association Force Ouvrière Consommateurs (AFOC) de l'Hérault – Association sans but lucratif régie par la loi du 1er juillet 1901. Siège social : Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier. Numéro RNA : W343007078."
         },
         {
           "sectionTitle": "Responsable de publication",
-          "text": "Le Secrétaire Départemental de l'AFOC 34."
+          "text": "Thierry PRUNIER, Président de l'AFOC de l'Hérault."
         },
         {
           "sectionTitle": "Hébergement",
-          "text": "Le site est hébergé par [Nom de l'hébergeur], [Adresse de l'hébergeur]."
+          "text": "Le site est hébergé par Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis. Site : https://www.netlify.com"
+        },
+        {
+          "sectionTitle": "Déclaration",
+          "text": "Association déclarée à la préfecture de l'Hérault le 08 octobre 1975, publiée le 23 octobre 1975."
+        },
+        {
+          "sectionTitle": "Objet de l'association",
+          "text": "Assurer et développer la défense des droits et intérêts des consommateurs en suivant 5 axes privilégiés : l'information, la formation, la protection, la représentation et la défense des consommateurs."
+        },
+        {
+          "sectionTitle": "Propriété intellectuelle",
+          "text": "L'ensemble du contenu de ce site (textes, images, logos) est la propriété exclusive de l'AFOC de l'Hérault. Toute reproduction, même partielle, est interdite sans autorisation préalable."
         }
       ]
     },
@@ -130,8 +142,12 @@
       "title": "Politique de confidentialité (RGPD)",
       "content": [
         {
-          "sectionTitle": "Collecte et Finalité",
-          "text": "Les informations recueillies sont nécessaires pour l'adhésion et le traitement de vos dossiers de litige. Elles sont strictement destinées à l'usage interne de l'association."
+          "sectionTitle": "Responsable du traitement",
+          "text": "Thierry PRUNIER, Président de l'AFOC de l'Hérault, Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier. Contact : afoc34@wanadoo.fr"
+        },
+        {
+          "sectionTitle": "Collecte et finalité",
+          "text": "Les informations recueillies via les formulaires de contact et d'adhésion sont nécessaires pour le traitement de vos demandes et dossiers de litige. Elles sont strictement destinées à l'usage interne de l'association et ne sont jamais transmises à des tiers."
         },
         {
           "sectionTitle": "Conservation des données",
@@ -139,7 +155,15 @@
         },
         {
           "sectionTitle": "Vos droits",
-          "text": "Conformément à la loi informatique et libertés, vous disposez d'un droit d'accès, de rectification et de suppression en écrivant à afoc34@wanadoo.fr."
+          "text": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, écrivez à afoc34@wanadoo.fr."
+        },
+        {
+          "sectionTitle": "Cookies",
+          "text": "Ce site n'utilise pas de cookies de traçage ou publicitaires. Aucune donnée de navigation n'est collectée à des fins commerciales."
+        },
+        {
+          "sectionTitle": "Réclamation",
+          "text": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL : https://www.cnil.fr"
         }
       ]
     }
