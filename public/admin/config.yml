@@ -1,3 +1,8 @@
+backend:
+  name: github
+  repo: KannannB/AFOC-34-
+  branch: main
+
 locale: fr
 
 media_folder: 'public/img/articles'
@@ -10,12 +15,12 @@ collections:
     create: true
     delete: true
     slug: '{{slug}}'
-    commit_message: '📢 Nouvel article : {{fields.title}} | {{fields.description}}'
+    commit_message: 'Nouvel article : {{fields.title}} | {{fields.description}}'
     fields:
       - { label: 'Titre', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
-      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Resume', name: 'description', widget: 'text' }
       - { label: 'Contenu', name: 'body', widget: 'markdown' }
 
   - name: 'logement'
@@ -24,12 +29,12 @@ collections:
     create: true
     delete: true
     slug: '{{slug}}'
-    commit_message: '📢 Nouvel article : {{fields.title}} | {{fields.description}}'
+    commit_message: 'Nouvel article : {{fields.title}} | {{fields.description}}'
     fields:
       - { label: 'Titre', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
-      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Resume', name: 'description', widget: 'text' }
       - { label: 'Contenu', name: 'body', widget: 'markdown' }
 
   - name: 'conseils'
@@ -38,10 +43,10 @@ collections:
     create: true
     delete: true
     slug: '{{slug}}'
-    commit_message: '📢 Nouvel article : {{fields.title}} | {{fields.description}}'
+    commit_message: 'Nouvel article : {{fields.title}} | {{fields.description}}'
     fields:
       - { label: 'Titre', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Image', name: 'image', widget: 'image', required: false }
-      - { label: 'Résumé', name: 'description', widget: 'text' }
+      - { label: 'Resume', name: 'description', widget: 'text' }
       - { label: 'Contenu', name: 'body', widget: 'markdown' }
