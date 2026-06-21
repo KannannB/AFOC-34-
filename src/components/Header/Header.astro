@@ -1,12 +1,11 @@
 ---
 import siteData from '../../data/site.json';
-import logo from '../../img/LogoAfoc.png';
+import logo from '../../../public/img/og-image.jpg';
 ---
 
 <header class="header">
   <a href={siteData?.header?.logoLink || '/'} class="header-logo">
     <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="logo-img" />
-    <span class="logo-text">{siteData?.header?.logo || 'AFOC 34'}</span>
   </a>
 
   <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">

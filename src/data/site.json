@@ -49,17 +49,17 @@
       {
         "city": "Montpellier",
         "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency",
-        "schedule": "Du lundi au vendredi sur rendez-vous"
+        "schedule": "Lundi et mercredi de 9h à 12h et de 14h à 17h mardi et jeudi de 14h à 17h"
       },
       {
         "city": "Béziers",
         "address": "Bourse du Travail, 57 Boulevard de la Liberté",
-        "schedule": "Consultez-nous pour les jours de passage"
+        "schedule": "Consultez-nous au 04 99 13 63 76 pour les jours de passage"
       },
       {
         "city": "Sète",
         "address": "Maison des Syndicats, Rue Jean Moulin",
-        "schedule": "Permanences régulières"
+        "schedule": "Consultez-nous au 04 99 13 63 76 pour les jours de passage"
       }
     ]
   },
@@ -94,7 +94,7 @@
     "description": "Expliquez-nous votre situation pour une prise en charge rapide.",
     "details": {
       "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier",
-      "phone": "04 67 15 01 20",
+      "phone": "04 99 13 63 76",
       "email": "afoc34@gmail.com",
       "access": "Tramway Lignes 1 - Arrêt Léon Blum - Parking à proximité"
     }

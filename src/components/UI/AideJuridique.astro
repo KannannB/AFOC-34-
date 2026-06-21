@@ -1,0 +1,100 @@
+<div class="aide-juridique">
+  <div class="aide-inner">
+    <h3 class="aide-title">⚖️ Besoin d'aide juridique ?</h3>
+    <div class="aide-content">
+      <p class="aide-intro">
+        <strong>Si vous êtes adhérent</strong> à jour de votre cotisation annuelle, contactez-nous :
+      </p>
+      <ul class="aide-list">
+        <li>En vous rapprochant d'une AFOC départementale</li>
+        <li>
+          Par téléphone au <strong>01 40 52 85 85</strong> — du lundi au vendredi de 9h00 à 12h30 et de
+          13h30 à 17h00
+        </li>
+        <li>
+          En saisissant votre litige sur <a
+            href="https://sos.afoc.net/"
+            target="_blank"
+            rel="noopener"
+            class="aide-link">SOS AFOC</a
+          >
+        </li>
+      </ul>
+      <p class="aide-warning">
+        ⚠️ Si vous n'êtes pas adhérent, l'AFOC ne peut légalement donner de consultations juridiques
+        qu'à ses seuls membres.
+        <a href="/adhesion" class="aide-cta">Adhérer →</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .aide-juridique {
+    background: rgba(27, 81, 98, 0.05);
+    border-left: 4px solid var(--color-bleu);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+  .aide-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+    margin-bottom: 1rem;
+  }
+  .aide-intro {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 0.75rem;
+  }
+  .aide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .aide-list li {
+    font-size: 0.9rem;
+    color: #374151;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .aide-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-rouge);
+    font-weight: bold;
+  }
+  .aide-link {
+    color: var(--color-bleu);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  .aide-warning {
+    font-size: 0.85rem;
+    color: #6b7280;
+    background: rgba(240, 54, 72, 0.06);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .aide-cta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-rouge);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .aide-cta:hover {
+    text-decoration: underline;
+  }
+</style>

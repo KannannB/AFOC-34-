@@ -34,7 +34,7 @@ const stats = [
     <div class="hero-decor-2"></div>
     <div class="hero-decor-3"></div>
     <div class="container px-6 mx-auto hero-inner">
-      <div class="hero-badge">Association agréée depuis 1975</div>
+      <!-- <div class="hero-badge">Association agréée depuis 1975</div> -->
       <h1 class="hero-title">{hero.title}</h1>
       <p class="hero-subtitle">{hero.subtitle}</p>
       <div class="hero-actions">
@@ -132,7 +132,7 @@ const stats = [
         {
           permanences.locations.map((loc) => (
             <div class="permanence-card">
-              <div class="permanence-dot" />
+              {/* <div class="permanence-dot" /> */}
               <h4 class="permanence-city">{loc.city}</h4>
               <p class="permanence-address">📍 {loc.address}</p>
               <p class="permanence-schedule">🕐 {loc.schedule}</p>
@@ -170,7 +170,7 @@ const stats = [
   /* ── HERO ── */
   .hero-section {
     background-color: var(--color-bleu);
-    padding: 6rem 0 0;
+    padding: 4rem 0 0;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -206,9 +206,10 @@ const stats = [
   .hero-inner {
     position: relative;
     z-index: 1;
-    padding-bottom: 4rem;
+    padding-bottom: 1.5rem;
   }
-  .hero-badge {
+
+  /* .hero-badge {
     display: inline-block;
     background: rgba(240, 54, 72, 0.15);
     color: #fca5a5;
@@ -219,22 +220,24 @@ const stats = [
     text-transform: uppercase;
     padding: 0.4rem 1rem;
     border-radius: 999px;
-    margin-bottom: 1.5rem;
-  }
+    margin-bottom: 1.25rem;
+  } */
+
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
     color: #ffffff;
     font-weight: 800;
     line-height: 1.2;
     max-width: 800px;
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 1rem;
   }
+
   .hero-subtitle {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 560px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
     line-height: 1.7;
   }
   .hero-actions {
@@ -265,7 +268,7 @@ const stats = [
   /* ── STATS ── */
   .stats-section {
     background: #f9fafb;
-    padding: 2.5rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid #e5e7eb;
   }
   .stats-grid {
@@ -277,8 +280,8 @@ const stats = [
   .stat-item {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem 0.5rem;
+    gap: 0.1rem;
+    padding: 0.5rem 0.25rem;
   }
   .stat-valeur {
     font-family: var(--font-serif);
@@ -298,12 +301,12 @@ const stats = [
 
   /* ── SECTION HEADERS ── */
   .missions-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: #ffffff;
   }
   .section-header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
   }
   .section-label {
     font-size: 0.75rem;
@@ -326,7 +329,7 @@ const stats = [
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 800;
     color: var(--color-bleu);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0rem;
   }
   .section-sub {
     color: #6b7280;
@@ -342,7 +345,7 @@ const stats = [
     background: #ffffff;
     border: 1px solid #e8ecf0;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.25rem;
     text-decoration: none;
     color: inherit;
     transition:
@@ -373,8 +376,8 @@ const stats = [
     transform: scaleY(1);
   }
   .mission-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
   .mission-title {
     font-family: var(--font-serif);
@@ -384,11 +387,11 @@ const stats = [
     margin-bottom: 0.75rem;
   }
   .mission-desc {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #6b7280;
-    line-height: 1.7;
+    line-height: 1.6;
     flex: 1;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
   .mission-link {
     font-size: 0.85rem;

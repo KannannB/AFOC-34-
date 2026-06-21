@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AideJuridique from '../components/UI/AideJuridique.astro';
 import siteData from '../data/site.json';
 
 const { services } = siteData;
@@ -19,8 +20,8 @@ const { services } = siteData;
       </p>
     </div>
   </div>
-
-  <section class="container mx-auto px-6 py-16">
+  <section class="container px-6 py-16 mx-auto">
+    <AideJuridique />
     <div class="grid gap-6">
       {
         services.map((service) => (

@@ -24,8 +24,8 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
   </section>
 
   <!-- Permanences -->
-  <section class="container mx-auto px-6 py-20">
-    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+  <section class="container px-6 py-20 mx-auto">
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
       {
         permanences.locations.map((loc) => (
           <article class="card-permanence">
@@ -60,13 +60,13 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
 
       <p class="bandeau-text">
         Les permanences peuvent être soumises à modification. Nous vous conseillons de nous
-        contacter par téléphone au <strong>04 67 15 01 20</strong> avant de vous déplacer.
+        contacter par téléphone au <strong>04 99 13 63 76</strong> avant de vous déplacer.
       </p>
     </div>
   </section>
 
   <!-- Carte -->
-  <section class="container mx-auto px-6 pb-20">
+  <section class="container px-6 pb-20 mx-auto">
     <div class="section-header">
       <p class="section-label">Localisation</p>
 
@@ -80,7 +80,7 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
         <img
           src="https://static-maps.yandex.ru/1.x/?lang=fr_FR&ll=3.8965,43.6015&z=15&l=map&size=650,350&pt=3.8965,43.6015,pm2rdm"
           alt="Plan d'accès AFOC 34"
-          class="w-full h-full object-cover"
+          class="object-cover w-full h-full"
         />
       </div>
 
@@ -94,7 +94,7 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
           <span>📍 Cliquez pour ouvrir l'itinéraire</span>
         </a>
 
-        <p class="text-xs text-gray-500 text-center max-w-xs italic">
+        <p class="max-w-xs text-xs italic text-center text-gray-500">
           L'itinéraire s'ouvrira directement dans votre application GPS (Google Maps, Waze, Apple
           Maps).
         </p>

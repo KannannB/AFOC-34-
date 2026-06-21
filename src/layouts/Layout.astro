@@ -4,7 +4,12 @@ import Footer from '../components/Footer/Footer.astro';
 import siteData from '../data/site.json';
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
+
+const pageTitle = title ? `${title} | ${siteData.header.logo}` : siteData.header.logo;
+const pageDescription = description || siteData.seo.defaultDescription;
+const pageImage = image || '/img/og-image.jpg';
+const pageUrl = Astro.url.href;
 ---
 
 <!doctype html>
@@ -12,13 +17,28 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title ? `${title} | ${siteData.header.logo}` : siteData.header.logo}</title>
-    <meta name="description" content={description || siteData.hero.subtitle} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="theme-color" content="#2563eb" />
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script></head
-  >
+    <meta name="theme-color" content="#1b5162" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={pageImage} />
+    <meta property="og:site_name" content="AFOC 34" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={pageImage} />
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
   <script>
     const identity = window['netlifyIdentity'];
     if (identity) {
