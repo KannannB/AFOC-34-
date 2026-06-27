@@ -2,99 +2,108 @@
 import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
 import Button from '../components/UI/Button.astro';
-import Card from '../components/UI/Card.astro';
 
 const title = siteData.seo.defaultTitle;
 const description = siteData.seo.defaultDescription;
 const hero = siteData.hero;
 const services = siteData.services;
 const permanences = siteData.permanences;
-
-const icones = {
-  'home-icon': '🏠',
-  'shopping-cart-icon': '🛒',
-  'shield-check-icon': '🛡️',
-};
-
-const stats = [
-  { valeur: '1975', label: 'Année de création' },
-  { valeur: '3 Villes couvertes', label: 'Béziers, Montpellier, Sète' },
-  {
-    valeur: "5 Axes d'intervention",
-    label: 'Information, Accompagnement, Protection, Représentation, Défense',
-  },
-  { valeur: '100%', label: 'Indépendant' },
-];
 ---
 
 <Layout title={title} description={description}>
-  <!-- HERO -->
-  <section class="hero-section">
-    <div class="hero-decor-1"></div>
-    <div class="hero-decor-2"></div>
-    <div class="hero-decor-3"></div>
-    <div class="container px-6 mx-auto hero-inner">
-      <!-- <div class="hero-badge">Association agréée depuis 1975</div> -->
-      <h1 class="hero-title">{hero.title}</h1>
-      <p class="hero-subtitle">{hero.subtitle}</p>
-      <div class="hero-actions">
-        <Button href={hero.cta.url} variant="accent" size="lg">
-          {hero.cta.label}
-        </Button>
-        <a href="/about" class="hero-link">En savoir plus →</a>
-      </div>
-    </div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f9fafb"></path>
-      </svg>
-    </div>
-  </section>
+  <!-- HERO ASYMÉTRIQUE -->
+  <section class="hero">
+    <div class="hero-decor-ring-1"></div>
+    <div class="hero-decor-ring-2"></div>
 
-  <!-- STATS -->
-  <section class="stats-section">
-    <div class="container px-6 mx-auto">
-      <div class="stats-grid">
-        {
-          stats.map((stat) => (
-            <div class="stat-item">
-              <span class="stat-valeur">{stat.valeur}</span>
-              <span class="stat-label">{stat.label}</span>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <!-- <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Association agréée depuis 1975
+        </div> -->
+        <h1 class="hero-title">
+          <span class="hero-title-brand">AFOC 34</span>
+          <span class="hero-title-sub">Défense des</span>
+          <span class="hero-title-accent">Consommateurs</span>
+          <span class="hero-title-sub">& Locataires de l'Hérault</span>
+        </h1>
+        <p class="hero-subtitle">{hero.subtitle}</p>
+        <div class="hero-actions">
+          <a href="/contact" class="btn-primary">Nous contacter</a>
+          <a href="/about" class="btn-ghost">En savoir plus →</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <p class="hero-card-label">Nos chiffres</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-val" data-count="1975" data-suffix="">1975</span>
+              <span class="hero-stat-label">Fondée en</span>
             </div>
-          ))
-        }
+            <div class="hero-stat">
+              <span class="hero-stat-val accent" data-count="3" data-suffix="">3</span>
+              <span class="hero-stat-label">Villes</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-val" data-count="5" data-suffix="">5</span>
+              <span class="hero-stat-label">Axes d'action</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-val accent" data-count="100" data-suffix="%">100%</span>
+              <span class="hero-stat-label">Indépendant</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- MISSIONS -->
-  <section id="missions" class="missions-section">
-    <div class="container px-6 mx-auto">
+  <section class="missions reveal">
+    <div class="container">
       <div class="section-header">
         <p class="section-label">Ce que nous faisons</p>
-        <h2 class="section-title">Nos Domaines d'Intervention</h2>
+        <h2 class="section-title">Nos domaines d'intervention</h2>
         <p class="section-sub">Nous vous accompagnons dans tous vos litiges du quotidien.</p>
       </div>
-      <div class="grid gap-8 md:grid-cols-3">
-        {
-          services.map((service) => (
-            <a href={service.href} class="mission-card">
-              <div class="mission-icon">{icones[service.icon]}</div>
-              <h3 class="mission-title">{service.title}</h3>
-              <p class="mission-desc">{service.desc}</p>
-              <span class="mission-link">Découvrir →</span>
-            </a>
-          ))
-        }
+      <div class="missions-grid">
+        <a href="/logement-hlm" class="mission-card reveal-card">
+          <div class="mission-bar" style="background: #1b5162;"></div>
+          <div class="mission-icon" style="background: rgba(27,81,98,0.1);">🏠</div>
+          <h3 class="mission-title">Logement & HLM</h3>
+          <p class="mission-desc">
+            Charges, état des lieux, baux et commissions de concertation locative.
+          </p>
+          <span class="mission-link">Découvrir →</span>
+        </a>
+        <a href="/consommation" class="mission-card reveal-card">
+          <div class="mission-bar" style="background: #f03648;"></div>
+          <div class="mission-icon" style="background: rgba(240,54,72,0.1);">🛒</div>
+          <h3 class="mission-title">Consommation</h3>
+          <p class="mission-desc">
+            Arnaques, litiges opérateurs, démarchage abusif, banques et assurances.
+          </p>
+          <span class="mission-link">Découvrir →</span>
+        </a>
+        <a href="/conseils" class="mission-card reveal-card">
+          <div class="mission-bar" style="background: #1b5162;"></div>
+          <div class="mission-icon" style="background: rgba(27,81,98,0.1);">🛡️</div>
+          <h3 class="mission-title">Conseils</h3>
+          <p class="mission-desc">CAF, CPAM, démarches administratives et droits des usagers.</p>
+          <span class="mission-link">Découvrir →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BANDEAU ENGAGEMENT -->
-  <section class="engagement-section">
-    <div class="container px-6 mx-auto">
+  <!-- ENGAGEMENT -->
+  <section class="engagement reveal">
+    <div class="container">
       <div class="engagement-grid">
-        <div class="engagement-text">
+        <div class="engagement-left">
           <p class="section-label-light">Notre engagement</p>
           <h2 class="engagement-title">Une association indépendante à vos côtés</h2>
           <p class="engagement-desc">
@@ -102,37 +111,41 @@ const stats = [
             de l'Hérault. Nos bénévoles vous accompagnent gratuitement dans vos démarches.
           </p>
           <ul class="engagement-list">
-            <li>✓ Information sur vos droits</li>
-            <li>✓ Accompagnement amiable</li>
-            <li>✓ Représentation dans les commissions</li>
-            <li>✓ Défense collective des consommateurs</li>
+            <li><span class="check">✓</span> Information sur vos droits</li>
+            <li><span class="check">✓</span> Accompagnement amiable</li>
+            <li><span class="check">✓</span> Représentation dans les commissions</li>
+            <li><span class="check">✓</span> Défense collective des consommateurs</li>
           </ul>
         </div>
-        <div class="engagement-card">
-          <p class="engagement-card-title">Nous contacter</p>
-          <p class="engagement-card-info">📍 {siteData.contact.details.address}</p>
-          <p class="engagement-card-info">📞 {siteData.contact.details.phone}</p>
-          <p class="engagement-card-info">✉️ {siteData.contact.details.email}</p>
-          <p class="engagement-card-info">🚊 {siteData.contact.details.access}</p>
-          <a href="/contact" class="engagement-card-btn">Prendre contact</a>
+        <div class="engagement-right">
+          <div class="contact-card reveal-card">
+            <p class="contact-card-title">Nous contacter</p>
+            <p class="contact-info">📍 {siteData.contact.details.address}</p>
+            <p class="contact-info">📞 {siteData.contact.details.phone}</p>
+            <p class="contact-info">✉️ {siteData.contact.details.email}</p>
+            <p class="contact-info">🚊 {siteData.contact.details.access}</p>
+            <a href="/contact" class="contact-btn">Prendre contact</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PERMANENCES -->
-  <section class="permanences-section">
-    <div class="container px-6 mx-auto">
+  <section class="permanences reveal">
+    <div class="container">
       <div class="section-header">
         <p class="section-label">Près de chez vous</p>
         <h2 class="section-title">{permanences.title}</h2>
         <p class="section-sub">{permanences.description}</p>
       </div>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="permanences-grid">
         {
-          permanences.locations.map((loc) => (
-            <div class="permanence-card">
-              {/* <div class="permanence-dot" /> */}
+          permanences.locations.map((loc, i) => (
+            <div
+              class="permanence-card reveal-card"
+              style={'animation-delay:' + String(i * 100) + 'ms'}
+            >
               <h4 class="permanence-city">{loc.city}</h4>
               <p class="permanence-address">📍 {loc.address}</p>
               <p class="permanence-schedule">🕐 {loc.schedule}</p>
@@ -140,196 +153,402 @@ const stats = [
           ))
         }
       </div>
-      <div class="mt-10 text-center">
-        <Button href="/permanences" variant="outline">Voir les détails des permanences</Button>
+      <div class="permanences-cta">
+        <a href="/permanences" class="btn-outline">Voir toutes les permanences →</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA ADHESION -->
-  <section class="cta-section">
-    <div class="container px-6 mx-auto">
+  <!-- CTA ADHÉSION -->
+  <section class="cta reveal">
+    <div class="container">
       <div class="cta-box">
         <div class="cta-decor-1"></div>
         <div class="cta-decor-2"></div>
-        <div class="cta-content">
+        <div class="cta-inner">
           <p class="section-label-light">Rejoignez-nous</p>
           <h2 class="cta-title">Soutenez l'AFOC 34, adhérez !</h2>
           <p class="cta-desc">
             Plus nous sommes nombreux, plus notre voix pèse face aux bailleurs et aux grandes
             entreprises.
           </p>
-          <Button href="/adhesion" variant="accent">Comment adhérer ?</Button>
+          <a href="/adhesion" class="btn-accent">Comment adhérer ?</a>
         </div>
       </div>
     </div>
   </section>
 </Layout>
 
+<script>
+  // ── Compteur animé sur les stats ──
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+    const startVal = target > 100 ? target - 50 : 0;
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(startVal + (target - startVal) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // ── Intersection Observer pour scroll reveal ──
+  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal, .reveal-card').forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+  // ── Compteur au scroll ──
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('[data-count]').forEach(animateCount);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  const heroCard = document.querySelector('.hero-card');
+  if (heroCard) statsObserver.observe(heroCard);
+
+  // ── Ripple effect sur les boutons ──
+  document.querySelectorAll('.btn-primary, .btn-accent').forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      ripple.style.cssText =
+        'position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;';
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
+      ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
+      this.style.position = 'relative';
+      this.style.overflow = 'hidden';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // ── Header sticky effet au scroll ──
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.style.boxShadow = '0 4px 24px rgba(27,81,98,0.12)';
+      header.style.backdropFilter = 'blur(8px)';
+    } else {
+      header.style.boxShadow = 'none';
+      header.style.backdropFilter = 'none';
+    }
+  });
+</script>
+
 <style>
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+  }
+  .reveal-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
   /* ── HERO ── */
-  .hero-section {
-    background-color: var(--color-bleu);
-    padding: 4rem 0 0;
+  .hero {
+    background: #1b5162;
+    padding: 3rem 2rem 0;
     position: relative;
     overflow: hidden;
-    text-align: center;
   }
-  .hero-decor-1 {
+  .hero-decor-ring-1 {
     position: absolute;
     top: -80px;
-    left: -80px;
-    width: 320px;
-    height: 320px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.04);
+    border: 50px solid rgba(240, 54, 72, 0.12);
   }
-  .hero-decor-2 {
+  .hero-decor-ring-2 {
     position: absolute;
-    top: 40px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
+    bottom: 30px;
+    left: -40px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    background: var(--color-rouge);
-    opacity: 0.12;
+    border: 30px solid rgba(255, 255, 255, 0.05);
   }
-  .hero-decor-3 {
-    position: absolute;
-    bottom: 60px;
-    left: 30%;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-  }
-  .hero-inner {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: end;
+    max-width: 1100px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
-    padding-bottom: 1.5rem;
   }
-
-  /* .hero-badge {
-    display: inline-block;
+  .hero-left {
+    padding-bottom: 3rem;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(240, 54, 72, 0.15);
-    color: #fca5a5;
-    border: 1px solid rgba(240, 54, 72, 0.3);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.4rem 1rem;
+    border: 1px solid rgba(240, 54, 72, 0.35);
     border-radius: 999px;
-    margin-bottom: 1.25rem;
-  } */
-
+    padding: 5px 14px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f03648;
+    animation: pulse 2s infinite;
+  }
+  .hero-badge span {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fca5a5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-    color: #ffffff;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
     font-weight: 800;
-    line-height: 1.2;
-    max-width: 800px;
-    margin: 0 auto 1rem;
+    color: #fff;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
   }
 
+  .hero-title-accent {
+    color: #f03648;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+  }
+  .hero-title-light {
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    font-size: 0.85em;
+  }
   .hero-subtitle {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 1rem;
-    max-width: 560px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0 0 2rem;
+    max-width: 380px;
   }
   .hero-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
+    gap: 12px;
     flex-wrap: wrap;
   }
-  .hero-link {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .hero-link:hover {
-    color: #ffffff;
-  }
-  .hero-wave {
-    margin-bottom: -2px;
-  }
-  .hero-wave svg {
-    display: block;
-    width: 100%;
-  }
 
-  /* ── STATS ── */
-  .stats-section {
-    background: #f9fafb;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e5e7eb;
+  /* Hero card stats */
+  .hero-right {
+    padding-bottom: 2.5rem;
   }
-  .stats-grid {
+  .hero-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 1.75rem;
+  }
+  .hero-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 1.25rem;
+  }
+  .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
-  .stat-item {
+  .hero-stat {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
-    padding: 0.5rem 0.25rem;
+    gap: 4px;
   }
-  .stat-valeur {
+  .hero-stat-val {
     font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: 2rem;
     font-weight: 800;
-    color: var(--color-bleu);
-    line-height: 1.2;
+    color: #fff;
+    line-height: 1;
   }
-  .stat-label {
-    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-    color: #6b7280;
+  .hero-stat-val.accent {
+    color: #f03648;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: #f03648;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.7rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
     font-weight: 600;
-    line-height: 1.4;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.7rem 0;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover {
+    color: #fff;
+  }
+
+  .btn-outline {
+    border: 2px solid #1b5162;
+    color: #1b5162;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.7rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+  .btn-outline:hover {
+    background: #1b5162;
+    color: #fff;
+  }
+
+  .btn-accent {
+    background: #f03648;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+  }
+  .btn-accent:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
   /* ── SECTION HEADERS ── */
-  .missions-section {
-    padding: 2rem 0;
-    background: #ffffff;
-  }
   .section-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
   .section-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-rouge);
+    color: #f03648;
     margin-bottom: 0.5rem;
   }
   .section-label-light {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 0.5rem;
   }
   .section-title {
     font-family: var(--font-serif);
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 800;
-    color: var(--color-bleu);
-    margin-bottom: 0rem;
+    color: #1b5162;
+    margin-bottom: 0.75rem;
   }
   .section-sub {
     color: #6b7280;
@@ -338,70 +557,82 @@ const stats = [
     margin: 0 auto;
   }
 
-  /* ── MISSION CARDS ── */
+  /* ── MISSIONS ── */
+  .missions {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .missions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
   .mission-card {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #e8ecf0;
-    border-radius: 12px;
-    padding: 1.25rem;
+    border-radius: 14px;
+    padding: 1.75rem;
     text-decoration: none;
     color: inherit;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
     position: relative;
     overflow: hidden;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
   }
-  .mission-card::before {
-    content: '';
+  .mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(27, 81, 98, 0.12);
+    border-color: #1b5162;
+  }
+  .mission-bar {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--color-rouge);
-    transform: scaleY(0);
-    transition: transform 0.2s ease;
-    transform-origin: bottom;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
   }
-  .mission-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(27, 81, 98, 0.12);
-    border-color: var(--color-bleu);
-  }
-  .mission-card:hover::before {
-    transform: scaleY(1);
+  .mission-card:hover .mission-bar {
+    transform: scaleX(1);
   }
   .mission-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   .mission-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    color: var(--color-bleu);
-    margin-bottom: 0.75rem;
+    color: #1b5162;
+    margin-bottom: 0.6rem;
   }
   .mission-desc {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
     flex: 1;
-    margin-bottom: 0.75rem;
   }
   .mission-link {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: var(--color-rouge);
+    color: #f03648;
+    transition: gap 0.2s;
   }
 
   /* ── ENGAGEMENT ── */
-  .engagement-section {
-    background: var(--color-bleu);
+  .engagement {
+    background: #1b5162;
     padding: 5rem 0;
   }
   .engagement-grid {
@@ -412,14 +643,14 @@ const stats = [
   }
   .engagement-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
     font-weight: 800;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 1rem;
     line-height: 1.3;
   }
   .engagement-desc {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.8;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
@@ -433,77 +664,98 @@ const stats = [
     gap: 0.6rem;
   }
   .engagement-list li {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .engagement-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
+  .check {
+    color: #f03648;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+  .contact-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
     padding: 2rem;
-    backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    transition: background 0.2s;
   }
-  .engagement-card-title {
+  .contact-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .contact-card-title {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
   }
-  .engagement-card-info {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.88rem;
+  .contact-info {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.87rem;
     line-height: 1.5;
   }
-  .engagement-card-btn {
+  .contact-btn {
     display: inline-block;
-    margin-top: 0.75rem;
-    background: var(--color-rouge);
-    color: #ffffff;
+    margin-top: 0.5rem;
+    background: #f03648;
+    color: #fff;
     font-weight: 700;
     font-size: 0.9rem;
     padding: 0.65rem 1.5rem;
     border-radius: 999px;
     text-decoration: none;
     text-align: center;
-    transition: opacity 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
   }
-  .engagement-card-btn:hover {
+  .contact-btn:hover {
     opacity: 0.9;
+    transform: translateY(-2px);
   }
 
   /* ── PERMANENCES ── */
-  .permanences-section {
+  .permanences {
     padding: 5rem 0;
     background: #f9fafb;
   }
+  .permanences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
   .permanence-card {
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #e8ecf0;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 1.75rem;
-    position: relative;
-    transition: box-shadow 0.2s ease;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
   }
   .permanence-card:hover {
-    box-shadow: 0 8px 24px rgba(27, 81, 98, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27, 81, 98, 0.1);
   }
   .permanence-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--color-rouge);
+    background: #f03648;
     margin-bottom: 1rem;
   }
   .permanence-city {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    color: var(--color-bleu);
+    color: #1b5162;
     margin-bottom: 0.6rem;
   }
   .permanence-address {
@@ -515,17 +767,20 @@ const stats = [
   .permanence-schedule {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-bleu);
+    color: #1b5162;
+  }
+  .permanences-cta {
+    text-align: center;
   }
 
   /* ── CTA ── */
-  .cta-section {
+  .cta {
     padding: 5rem 0;
-    background: #ffffff;
+    background: #fff;
   }
   .cta-box {
-    background: var(--color-bleu);
-    border-radius: 20px;
+    background: #1b5162;
+    border-radius: 24px;
     padding: 4rem;
     text-align: center;
     position: relative;
@@ -538,7 +793,7 @@ const stats = [
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    border: 50px solid rgba(255, 255, 255, 0.04);
   }
   .cta-decor-2 {
     position: absolute;
@@ -547,10 +802,10 @@ const stats = [
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: var(--color-rouge);
+    background: #f03648;
     opacity: 0.1;
   }
-  .cta-content {
+  .cta-inner {
     position: relative;
     z-index: 1;
   }
@@ -558,11 +813,11 @@ const stats = [
     font-family: var(--font-serif);
     font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 800;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 1rem;
   }
   .cta-desc {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
     max-width: 500px;
     margin: 0 auto 2rem;
@@ -571,8 +826,18 @@ const stats = [
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .hero-right {
+      padding-bottom: 2rem;
+    }
+    .missions-grid {
+      grid-template-columns: 1fr;
+    }
+    .permanences-grid {
+      grid-template-columns: 1fr;
     }
     .engagement-grid {
       grid-template-columns: 1fr;
@@ -582,18 +847,13 @@ const stats = [
       padding: 2.5rem 1.5rem;
     }
   }
-  @media (max-width: 640px) {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-    }
-    .stat-item {
-      padding: 0.75rem 0.25rem;
-    }
-  }
+
   @media (max-width: 480px) {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .hero {
+      padding: 2rem 1rem 0;
+    }
+    .missions-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
