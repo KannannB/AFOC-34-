@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
-
 const title = siteData.about.title;
 const description = siteData.about.description;
 const content = siteData.about.content;
@@ -11,38 +10,34 @@ import Card from '../components/UI/Card.astro';
 ---
 
 <Layout title={title} description={description}>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-label">Qui sommes-nous</p>
+      <h1>{title}</h1>
+      <p class="page-hero-sub">{description}</p>
+    </div>
+  </div>
+
   <section class="py-16 bg-white">
     <div class="max-w-5xl px-6 mx-auto lg:px-12">
-      <div class="mb-14">
-        <h1 class="mb-6 text-4xl font-bold md:text-5xl text-secondary">
-          {title}
-        </h1>
-
-        <p class="max-w-3xl text-lg leading-relaxed text-gray-600">
-          {description}
-        </p>
-      </div>
-
       <div class="grid gap-8">
         {
           content.map((section) => (
             <article class="p-8 transition border border-gray-100 shadow-sm bg-gray-50 rounded-2xl hover:shadow-md">
-              <h2 class="mb-4 text-2xl font-semibold text-secondary">{section.sectionTitle}</h2>
-
+              <h2 class="mb-4 text-2xl font-semibold" style="color: #1b5162;">
+                {section.sectionTitle}
+              </h2>
               <p class="text-lg leading-relaxed text-gray-700">{section.text}</p>
             </article>
           ))
         }
       </div>
-
       <div class="p-10 mt-16 text-white bg-bleu from-primary to-secondary rounded-2xl">
-        <h2 class="mb-4 text-3xl font-bold">Besoin d’aide ou d’informations ?</h2>
-
+        <h2 class="mb-4 text-3xl font-bold">Besoin d'aide ou d'informations ?</h2>
         <p class="mb-6 text-lg leading-relaxed text-gray-100">
-          L’AFOC 34 accompagne les consommateurs et les locataires dans leurs démarches, leurs
+          L'AFOC 34 accompagne les consommateurs et les locataires dans leurs démarches, leurs
           litiges et la défense de leurs droits au quotidien.
         </p>
-
         <Button href={hero.cta.url} variant="accent" size="lg">
           {hero.cta.label}
         </Button>
@@ -50,3 +45,53 @@ import Card from '../components/UI/Card.astro';
     </div>
   </section>
 </Layout>
+
+<style>
+  .page-hero {
+    background-color: var(--color-bleu);
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--color-rouge);
+    opacity: 0.08;
+    border-radius: 50%;
+    transform: translate(30%, 40%);
+  }
+  .page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-rouge);
+    margin-bottom: 0.75rem;
+  }
+  .page-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  .page-hero-sub {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

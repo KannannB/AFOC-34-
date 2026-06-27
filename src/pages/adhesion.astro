@@ -9,13 +9,16 @@ const { services } = siteData;
   title="Adhérer à l'AFOC 34"
   description="Rejoignez l'AFOC 34 pour défendre vos droits de consommateur et de locataire."
 >
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-label">Rejoignez-nous</p>
+      <h1>Adhésion AFOC 34</h1>
+      <p class="page-hero-sub">Ensemble, défendons vos droits au quotidien.</p>
+    </div>
+  </div>
+
   <section class="py-20 bg-gray-50">
     <div class="container max-w-5xl px-6 mx-auto">
-      <div class="mb-12 text-center">
-        <h1 class="mb-4 text-4xl font-bold text-primary">Adhésion AFOC 34</h1>
-        <p class="text-xl text-gray-600">Ensemble, défendons vos droits au quotidien.</p>
-      </div>
-
       <div class="grid gap-12 lg:grid-cols-3">
         <div class="p-8 bg-white border border-gray-100 shadow-xl lg:col-span-2 rounded-3xl">
           <form
@@ -27,12 +30,13 @@ const { services } = siteData;
             class="space-y-6"
           >
             <input type="hidden" name="form-name" value="adhesion" />
-
             <p class="hidden">
               <label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label>
             </p>
 
-            <h2 class="pb-2 mb-6 text-2xl font-bold border-b text-secondary">Vos Informations</h2>
+            <h2 class="pb-2 mb-6 text-2xl font-bold border-b" style="color: #1b5162;">
+              Vos Informations
+            </h2>
 
             <div class="grid gap-6 md:grid-cols-2">
               <div>
@@ -143,3 +147,53 @@ const { services } = siteData;
     </div>
   </section>
 </Layout>
+
+<style>
+  .page-hero {
+    background-color: var(--color-bleu);
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--color-rouge);
+    opacity: 0.08;
+    border-radius: 50%;
+    transform: translate(30%, 40%);
+  }
+  .page-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .page-hero-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-rouge);
+    margin-bottom: 0.75rem;
+  }
+  .page-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  .page-hero-sub {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>
