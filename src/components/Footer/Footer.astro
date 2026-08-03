@@ -21,7 +21,9 @@ const mapUrl =
       <p class="footer-info">
         📍 <a href={mapUrl} target="_blank" rel="noopener noreferrer">{contact.details.address}</a>
       </p>
-      <p class="footer-info">📞 {contact.details.phone}</p>
+      <p class="footer-info">
+        📞 <a href={`tel:${contact.details.phone.replace(/\s+/g, '')}`}>{contact.details.phone}</a>
+      </p>
       <p class="footer-info">
         ✉️ <a href={`mailto:${contact.details.email}`}>{contact.details.email}</a>
       </p>
@@ -140,13 +142,13 @@ const mapUrl =
     margin: 0;
   }
   .footer-credit {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
   }
   .footer-credit-brand {
-    color: #fca5a5;
-    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
