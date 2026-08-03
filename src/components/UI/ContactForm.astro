@@ -1,13 +1,16 @@
 ---
-import siteData from '../../data/site.json';
+const netlifyFormAttrs: Record<string, string | boolean> = {
+  netlify: true,
+  'netlify-honeypot': 'bot-field',
+  'data-netlify-recaptcha': 'true',
+};
 ---
 
 <form
   name="contact"
   method="POST"
-  netlify
-  netlify-honeypot="bot-field"
-  action="/success"
+  {...netlifyFormAttrs}
+  action="/merci-contact"
   class="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
 >
   <input type="hidden" name="form-name" value="contact" />
@@ -86,6 +89,8 @@ import siteData from '../../data/site.json';
       >.
     </label>
   </div>
+
+  <div data-netlify-recaptcha="true"></div>
 
   <button
     type="submit"

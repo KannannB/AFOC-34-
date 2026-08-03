@@ -2,7 +2,7 @@
   "seo": {
     "defaultTitle": "AFOC 34 - Défense des Consommateurs et Locataires (Hérault)",
     "defaultDescription": "L'AFOC 34 vous conseille et vous défend dans vos litiges de consommation, logement, banque et énergie à Montpellier, Sète et Béziers. Association agréée de défense des consommateurs.",
-    "ogImage": "/images/og-image-afoc34.jpg",
+    "ogImage": "/img/og-image.jpg",
     "keywords": "AFOC 34, défense consommateurs Montpellier, litige logement Hérault, association locataires Sète, aide juridique consommation Béziers"
   },
   "header": {
@@ -49,17 +49,23 @@
       {
         "city": "Montpellier",
         "address": "Maison des Syndicats, 474 Allée Henri II de Montmorency",
-        "schedule": "Lundi et mercredi de 9h à 12h et de 14h à 17h mardi et jeudi de 14h à 17h"
+        "schedule": "Lundi et mercredi de 9h à 12h et de 14h à 17h mardi et jeudi de 14h à 17h",
+        "lat": 43.6015,
+        "lng": 3.8965
       },
       {
         "city": "Béziers",
         "address": "Bourse du Travail, 57 Boulevard de la Liberté",
-        "schedule": "Consultez-nous au 06 80 94 18 13 pour les jours de passage"
+        "schedule": "Consultez-nous au 06 80 94 18 13 pour les jours de passage",
+        "lat": 43.3442,
+        "lng": 3.214
       },
       {
         "city": "Sète",
         "address": "Maison des Syndicats, Rue Jean Moulin",
-        "schedule": "Consultez-nous au 06 80 94 18 13 pour les jours de passage"
+        "schedule": "Consultez-nous au 06 80 94 18 13 pour les jours de passage",
+        "lat": 43.4033,
+        "lng": 3.697
       }
     ]
   },
@@ -105,7 +111,7 @@
       { "name": "Mentions légales", "url": "/mentions-legales" },
       { "name": "Protection des données", "url": "/politique-confidentialite" },
       { "name": "Adhérer", "url": "/adhesion" },
-      { "name": "Plan du site", "url": "//sitemap-index.xml" }
+      { "name": "Plan du site", "url": "/sitemap-index.xml" }
     ]
   },
   "legal": {
@@ -143,7 +149,7 @@
       "content": [
         {
           "sectionTitle": "Responsable du traitement",
-          "text": "Thierry PRUNIER, Président de l'AFOC de l'Hérault, Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier. Contact : afoc34@wanadoo.fr"
+          "text": "Thierry PRUNIER, Président de l'AFOC de l'Hérault, Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier. Contact : afoc34@gmail.com"
         },
         {
           "sectionTitle": "Collecte et finalité",
@@ -155,11 +161,15 @@
         },
         {
           "sectionTitle": "Vos droits",
-          "text": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, écrivez à afoc34@wanadoo.fr."
+          "text": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, écrivez à afoc34@gmail.com."
         },
         {
           "sectionTitle": "Cookies",
           "text": "Ce site n'utilise pas de cookies de traçage ou publicitaires. Aucune donnée de navigation n'est collectée à des fins commerciales."
+        },
+        {
+          "sectionTitle": "Sous-traitants et hébergement",
+          "text": "Le site est hébergé par Netlify, Inc. (États-Unis), qui assure également la réception technique des formulaires de contact et d'adhésion en tant que sous-traitant. Ce transfert de données hors Union Européenne est encadré par les clauses contractuelles types de la Commission européenne / le cadre de protection des données UE-États-Unis (Data Privacy Framework) applicable à Netlify, Inc."
         },
         {
           "sectionTitle": "Réclamation",

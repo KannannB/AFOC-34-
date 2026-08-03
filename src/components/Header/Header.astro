@@ -1,11 +1,17 @@
 ---
 import siteData from '../../data/site.json';
-import logo from '../../../public/img/og-image.jpg';
+import logo from '../../../public/img/logo.jpg';
 ---
 
 <header class="header">
   <a href={siteData?.header?.logoLink || '/'} class="header-logo">
-    <img src={logo.src} alt={siteData?.header?.logo || 'AFOC 34'} class="logo-img" />
+    <img
+      src={logo.src}
+      width="80"
+      height="40"
+      alt={siteData?.header?.logo || 'AFOC 34'}
+      class="logo-img"
+    />
   </a>
 
   <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -33,17 +39,22 @@ import logo from '../../../public/img/og-image.jpg';
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
 
-  burger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('nav-open');
-    burger.classList.toggle('burger-open');
-    burger.setAttribute('aria-expanded', String(isOpen));
-  });
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('nav-open');
+      burger.classList.toggle('burger-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+  }
 
   document.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => {
+      if (!nav || !burger) return;
       nav.classList.remove('nav-open');
       burger.classList.remove('burger-open');
       burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Ouvrir le menu');
     });
   });
 </script>

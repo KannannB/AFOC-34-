@@ -8,8 +8,27 @@ const { title, description, image } = Astro.props;
 
 const pageTitle = title ? `${title} | ${siteData.header.logo}` : siteData.header.logo;
 const pageDescription = description || siteData.seo.defaultDescription;
-const pageImage = image || '/img/og-image.jpg';
+const pageImage = image || siteData.seo.ogImage;
 const pageUrl = Astro.url.href;
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'AFOC 34',
+  alternateName: "Association Force Ouvrière Consommateurs de l'Hérault",
+  url: 'https://afoc34.fr',
+  logo: 'https://afoc34.fr' + siteData.seo.ogImage,
+  telephone: siteData.contact.details.phone,
+  email: siteData.contact.details.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteData.contact.details.address,
+    addressLocality: 'Montpellier',
+    addressRegion: 'Hérault',
+    addressCountry: 'FR',
+  },
+  areaServed: ['Montpellier', 'Béziers', 'Sète'],
+};
 ---
 
 <!doctype html>
@@ -19,6 +38,8 @@ const pageUrl = Astro.url.href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={siteData.seo.keywords} />
+    <link rel="canonical" href={pageUrl} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#1b5162" />
 
@@ -37,12 +58,16 @@ const pageUrl = Astro.url.href;
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={pageImage} />
 
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+
+    <script defer data-domain="afoc34.fr" src="https://plausible.io/js/script.js"></script>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
   </head>
   <script>
-    const identity = window['netlifyIdentity'];
+    const identity = (window as any).netlifyIdentity;
     if (identity) {
-      identity.on('init', (user) => {
+      identity.on('init', (user: unknown) => {
         if (!user) {
           identity.on('login', () => {
             document.location.href = '/admin/';

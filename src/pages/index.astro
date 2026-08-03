@@ -1,12 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
-import Button from '../components/UI/Button.astro';
 
 const title = siteData.seo.defaultTitle;
 const description = siteData.seo.defaultDescription;
 const hero = siteData.hero;
-const services = siteData.services;
 const permanences = siteData.permanences;
 ---
 
@@ -18,10 +16,10 @@ const permanences = siteData.permanences;
 
     <div class="hero-grid">
       <div class="hero-left">
-        <!-- <div class="hero-badge">
+        <div class="hero-badge">
           <span class="hero-badge-dot"></span>
-          Association agréée depuis 1975
-        </div> -->
+          <span>Association agréée depuis 1975</span>
+        </div>
         <h1 class="hero-title">
           <span class="hero-title-brand">AFOC 34</span>
           <span class="hero-title-sub">Défense des</span>
@@ -180,15 +178,23 @@ const permanences = siteData.permanences;
 </Layout>
 
 <script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── Compteur animé sur les stats ──
-  function animateCount(el) {
-    const target = parseInt(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
+  function animateCount(el: Element) {
+    const target = parseInt((el as HTMLElement).dataset.count || '0');
+    const suffix = (el as HTMLElement).dataset.suffix || '';
+
+    if (prefersReducedMotion) {
+      el.textContent = target + suffix;
+      return;
+    }
+
     const duration = 1500;
     const start = performance.now();
     const startVal = target > 100 ? target - 50 : 0;
 
-    function update(now) {
+    function update(now: number) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -200,20 +206,24 @@ const permanences = siteData.permanences;
   }
 
   // ── Intersection Observer pour scroll reveal ──
-  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.reveal, .reveal-card').forEach((el) => el.classList.add('visible'));
+  } else {
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-card').forEach((el) => {
+      revealObserver.observe(el);
     });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal, .reveal-card').forEach((el) => {
-    revealObserver.observe(el);
-  });
+  }
 
   // ── Compteur au scroll ──
   const statsObserver = new IntersectionObserver(
@@ -232,34 +242,40 @@ const permanences = siteData.permanences;
   if (heroCard) statsObserver.observe(heroCard);
 
   // ── Ripple effect sur les boutons ──
-  document.querySelectorAll('.btn-primary, .btn-accent').forEach((btn) => {
-    btn.addEventListener('click', function (e) {
-      const ripple = document.createElement('span');
-      const rect = this.getBoundingClientRect();
-      ripple.style.cssText =
-        'position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;';
-      const size = Math.max(rect.width, rect.height);
-      ripple.style.width = ripple.style.height = size + 'px';
-      ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
-      ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
-      this.style.position = 'relative';
-      this.style.overflow = 'hidden';
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
+  if (!prefersReducedMotion) {
+    document.querySelectorAll('.btn-primary, .btn-accent').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const mouseEvent = e as MouseEvent;
+        const ripple = document.createElement('span');
+        const rect = target.getBoundingClientRect();
+        ripple.style.cssText =
+          'position:absolute;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;';
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = mouseEvent.clientX - rect.left - size / 2 + 'px';
+        ripple.style.top = mouseEvent.clientY - rect.top - size / 2 + 'px';
+        target.style.position = 'relative';
+        target.style.overflow = 'hidden';
+        target.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
     });
-  });
+  }
 
   // ── Header sticky effet au scroll ──
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.boxShadow = '0 4px 24px rgba(27,81,98,0.12)';
-      header.style.backdropFilter = 'blur(8px)';
-    } else {
-      header.style.boxShadow = 'none';
-      header.style.backdropFilter = 'none';
-    }
-  });
+  const header = document.querySelector('header') as HTMLElement | null;
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 24px rgba(27,81,98,0.12)';
+        header.style.backdropFilter = 'blur(8px)';
+      } else {
+        header.style.boxShadow = 'none';
+        header.style.backdropFilter = 'none';
+      }
+    });
+  }
 </script>
 
 <style>
@@ -413,7 +429,7 @@ const permanences = siteData.permanences;
   .hero-card-label {
     font-size: 11px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     margin: 0 0 1.25rem;
@@ -440,7 +456,7 @@ const permanences = siteData.permanences;
   }
   .hero-stat-label {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -540,7 +556,7 @@ const permanences = siteData.permanences;
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.75);
     margin-bottom: 0.5rem;
   }
   .section-title {

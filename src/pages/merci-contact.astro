@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Message envoyé">
+  <section class="min-h-screen flex items-center justify-center bg-gray-50">
+    <div class="text-center max-w-lg mx-auto px-6 py-16">
+      <div class="text-6xl mb-6">✅</div>
+      <h1 class="text-3xl font-bold text-[var(--color-bleu)] font-serif mb-4">
+        Votre message a bien été envoyé !
+      </h1>
+      <p class="text-gray-600 leading-relaxed mb-8">
+        Merci de nous avoir contactés. Un membre de l'AFOC 34 étudiera votre demande et reviendra
+        vers vous dans les meilleurs délais.
+      </p>
+
+      <a
+        href="/"
+        style="background: var(--color-bleu)"
+        class="inline-block text-white font-bold px-8 py-3 rounded-xl transition-all"
+      >
+        Retour a l'accueil
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -3,9 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import siteData from '../data/site.json';
 
 const { permanences } = siteData;
-const fullAddress = siteData.contact.details.address;
 
-const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(fullAddress);
+interface Permanence {
+  city: string;
+  address: string;
+  schedule: string;
+  lat: number;
+  lng: number;
+}
+
+function mapUrlFor(loc: Permanence) {
+  return (
+    'https://www.google.com/maps/search/?api=1&query=' +
+    encodeURIComponent(`${loc.address}, ${loc.city}`)
+  );
+}
+
+function staticMapFor(loc: Permanence) {
+  return `https://static-maps.yandex.ru/1.x/?lang=fr_FR&ll=${loc.lng},${loc.lat}&z=13&l=map&size=450,220&pt=${loc.lng},${loc.lat},pm2rdm`;
+}
 ---
 
 <Layout
@@ -49,6 +65,26 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
                 <p class="card-info-value">{loc.schedule}</p>
               </div>
             </div>
+
+            <div class="card-map">
+              <img
+                src={staticMapFor(loc)}
+                width="450"
+                height="220"
+                loading="lazy"
+                alt={`Plan d'accès à la permanence de ${loc.city}`}
+                class="card-map-img"
+              />
+            </div>
+
+            <a
+              href={mapUrlFor(loc)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-map-link"
+            >
+              📍 Itinéraire vers {loc.city} →
+            </a>
           </article>
         ))
       }
@@ -62,43 +98,6 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
         Les permanences peuvent être soumises à modification. Nous vous conseillons de nous
         contacter par téléphone au <strong>06 80 94 18 13</strong> avant de vous déplacer.
       </p>
-    </div>
-  </section>
-
-  <!-- Carte -->
-  <section class="container px-6 pb-20 mx-auto">
-    <div class="section-header">
-      <p class="section-label">Localisation</p>
-
-      <h2 class="section-title">Où nous trouver ?</h2>
-    </div>
-
-    <div class="space-y-6">
-      <div
-        class="rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 bg-gray-200 h-[450px]"
-      >
-        <img
-          src="https://static-maps.yandex.ru/1.x/?lang=fr_FR&ll=3.8965,43.6015&z=15&l=map&size=650,350&pt=3.8965,43.6015,pm2rdm"
-          alt="Plan d'accès AFOC 34"
-          class="object-cover w-full h-full"
-        />
-      </div>
-
-      <div class="flex flex-col items-center gap-4">
-        <a
-          href={mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 bg-[var(--color-bleu)] text-white px-8 py-4 rounded-full font-bold shadow-xl hover:bg-[var(--color-rouge)] hover:-translate-y-1 transition-all duration-300"
-        >
-          <span>📍 Cliquez pour ouvrir l'itinéraire</span>
-        </a>
-
-        <p class="max-w-xs text-xs italic text-center text-gray-500">
-          L'itinéraire s'ouvrira directement dans votre application GPS (Google Maps, Waze, Apple
-          Maps).
-        </p>
-      </div>
     </div>
   </section>
 </Layout>
@@ -232,7 +231,7 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
   }
 
   .card-info-label {
-    color: #9ca3af;
+    color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 0.72rem;
@@ -244,6 +243,35 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
     color: #374151;
     line-height: 1.7;
     font-size: 0.95rem;
+  }
+
+  .card-map {
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #edf1f4;
+  }
+
+  .card-map-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-bleu);
+    text-decoration: none;
+  }
+
+  .card-map-link:hover {
+    color: var(--color-rouge);
   }
 
   /* BANDEAU */
@@ -268,28 +296,5 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
     color: #374151;
     line-height: 1.8;
     font-size: 0.95rem;
-  }
-
-  /* SECTION */
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-
-  .section-label {
-    color: var(--color-rouge);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title {
-    color: var(--color-bleu);
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
   }
 </style>
