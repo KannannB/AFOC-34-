@@ -1,6 +1,9 @@
 ---
 import siteData from '../../data/site.json';
 const { contact } = siteData;
+const mapUrl =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent(contact.details.address);
 ---
 
 <footer class="site-footer">
@@ -15,9 +18,13 @@ const { contact } = siteData;
 
     <div class="footer-col">
       <p class="footer-heading">Nous contacter</p>
-      <p class="footer-info">📍 {contact.details.address}</p>
+      <p class="footer-info">
+        📍 <a href={mapUrl} target="_blank" rel="noopener noreferrer">{contact.details.address}</a>
+      </p>
       <p class="footer-info">📞 {contact.details.phone}</p>
-      <p class="footer-info">✉️ {contact.details.email}</p>
+      <p class="footer-info">
+        ✉️ <a href={`mailto:${contact.details.email}`}>{contact.details.email}</a>
+      </p>
     </div>
 
     <div class="footer-col">
@@ -36,7 +43,7 @@ const { contact } = siteData;
 
   <div class="footer-bottom">
     <p>{siteData.footer.text}</p>
-    <p class="footer-credit">Développé par Kannann - K4Y DIGITAL</p>
+    <p class="footer-credit">Développé par Kannann - <span class="footer-credit-brand">K4Y DIGITAL</span></p>
   </div>
 </footer>
 
@@ -83,6 +90,19 @@ const { contact } = siteData;
     color: rgba(255, 255, 255, 0.75);
     margin: 0 0 0.35rem;
   }
+  .footer-info a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 3px;
+    transition:
+      color 0.15s,
+      text-decoration-color 0.15s;
+  }
+  .footer-info a:hover {
+    color: #ffffff;
+    text-decoration-color: var(--color-rouge);
+  }
   .footer-links {
     list-style: none;
     margin: 0;
@@ -118,6 +138,15 @@ const { contact } = siteData;
   }
   .footer-bottom p {
     margin: 0;
+  }
+  .footer-credit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .footer-credit-brand {
+    color: #fca5a5;
+    font-weight: 800;
   }
 
   @media (max-width: 768px) {
