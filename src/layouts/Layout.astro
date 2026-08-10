@@ -3,14 +3,11 @@ import Header from '../components/Header/Header.astro';
 import Footer from '../components/Footer/Footer.astro';
 import siteData from '../data/site.json';
 import '../styles/global.css';
-
 const { title, description, image } = Astro.props;
-
 const pageTitle = title ? `${title} | ${siteData.header.logo}` : siteData.header.logo;
 const pageDescription = description || siteData.seo.defaultDescription;
 const pageImage = image || siteData.seo.ogImage;
 const pageUrl = Astro.url.href;
-
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
@@ -30,7 +27,6 @@ const orgJsonLd = {
   areaServed: ['Montpellier', 'Béziers', 'Sète'],
 };
 ---
-
 <!doctype html>
 <html lang="fr">
   <head>
@@ -42,8 +38,6 @@ const orgJsonLd = {
     <link rel="canonical" href={pageUrl} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#1b5162" />
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:title" content={pageTitle} />
@@ -51,31 +45,19 @@ const orgJsonLd = {
     <meta property="og:image" content={pageImage} />
     <meta property="og:site_name" content="AFOC 34" />
     <meta property="og:locale" content="fr_FR" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={pageImage} />
-
     <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
-
-    <script defer data-domain="afoc34.fr" src="https://plausible.io/js/script.js"></script>
-
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W263QYRTL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9W263QYRTL');
+    </script>
   </head>
-  <script>
-    const identity = (window as any).netlifyIdentity;
-    if (identity) {
-      identity.on('init', (user: unknown) => {
-        if (!user) {
-          identity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
-  </script>
   <body class="flex flex-col min-h-screen">
     <Header />
     <main class="flex-1">
