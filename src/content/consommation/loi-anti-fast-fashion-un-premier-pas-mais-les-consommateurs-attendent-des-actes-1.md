@@ -1,7 +1,7 @@
 ---
 title: "Loi anti-fast fashion : un premier pas, mais les consommateurs attendent
   des actes"
-date: 2026-08-10T16:56:00.000+02:00
+date: 2026-08-10T17:12:00.000+02:00
 image: /img/articles/pexels-hangers-1850082_1280.jpg
 description: "La loi anti-fast fashion promulguée début juillet encadre les
   pratiques des enseignes les plus polluantes via un système de bonus-malus
