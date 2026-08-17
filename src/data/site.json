@@ -110,6 +110,7 @@
     "legalLinks": [
       { "name": "Mentions légales", "url": "/mentions-legales" },
       { "name": "Protection des données", "url": "/politique-confidentialite" },
+      { "name": "Cookies", "url": "/politique-cookies" },
       { "name": "Adhérer", "url": "/adhesion" },
       { "name": "Plan du site", "url": "/sitemap-index.xml" }
     ]
@@ -153,27 +154,91 @@
         },
         {
           "sectionTitle": "Collecte et finalité",
-          "text": "Les informations recueillies via les formulaires de contact et d'adhésion sont nécessaires pour le traitement de vos demandes et dossiers de litige. Elles sont strictement destinées à l'usage interne de l'association et ne sont jamais transmises à des tiers."
+          "text": [
+            "Les informations recueillies via les formulaires de contact et d'adhésion sont nécessaires au traitement de vos demandes, à la gestion des adhésions et, le cas échéant, au traitement et au suivi des dossiers de litige.",
+            "Selon la nature du traitement, les données peuvent être traitées sur la base de l'exécution d'une adhésion ou d'une demande, du respect d'une obligation légale, de votre consentement lorsque celui-ci est requis, ou de l'intérêt légitime de l'association lorsque cette base est applicable.",
+            "Vos données ne sont ni vendues ni utilisées à des fins commerciales. Elles peuvent toutefois être transmises à des prestataires techniques nécessaires au fonctionnement du site et des formulaires, dans le respect de la réglementation applicable."
+          ]
         },
         {
           "sectionTitle": "Conservation des données",
-          "text": "Vos données personnelles sont conservées pendant la durée de votre adhésion ou le temps nécessaire à la résolution du litige, augmenté des délais de prescription légale (5 ans)."
+          "text": [
+            "Les données personnelles sont conservées pendant une durée adaptée à la finalité pour laquelle elles ont été collectées.",
+            "Les données relatives à une adhésion peuvent être conservées pendant la durée de l'adhésion et, lorsque cela est nécessaire, pendant les durées supplémentaires imposées par les obligations légales applicables.",
+            "Les données relatives aux dossiers de litige peuvent être conservées pendant la durée nécessaire à leur traitement et à la défense des droits concernés, puis pendant les durées nécessaires au respect des obligations légales et des délais de prescription applicables."
+          ]
         },
         {
           "sectionTitle": "Vos droits",
-          "text": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, écrivez à afoc34@gmail.com."
+          "text": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez, selon les conditions prévues par la réglementation applicable, des droits suivants :",
+          "list": [
+            "droit d'accès à vos données",
+            "droit de rectification",
+            "droit d'effacement",
+            "droit à la limitation du traitement",
+            "droit d'opposition lorsque celui-ci est applicable",
+            "droit à la portabilité lorsque celui-ci est applicable",
+            "droit de retirer votre consentement lorsque le traitement repose sur celui-ci"
+          ],
+          "after": [
+            "Pour exercer vos droits, vous pouvez contacter l'AFOC de l'Hérault à l'adresse afoc34@gmail.com, ou par courrier : AFOC de l'Hérault, Maison des Syndicats, 474 Allée Henri II de Montmorency, 34000 Montpellier."
+          ]
         },
         {
-          "sectionTitle": "Cookies",
-          "text": "Ce site n'utilise pas de cookies de traçage ou publicitaires. Aucune donnée de navigation n'est collectée à des fins commerciales."
+          "sectionTitle": "Cookies et mesure d'audience",
+          "text": [
+            "Le site afoc34.fr n'utilise pas de cookies publicitaires et ne dépose pas de cookies destinés à suivre les visiteurs à des fins de publicité personnalisée.",
+            "Le site utilise Umami, une solution de mesure d'audience sans dépôt de cookie, afin de mesurer sa fréquentation et d'améliorer son contenu et son fonctionnement. Les données de mesure d'audience collectées sont utilisées exclusivement à des fins statistiques et ne sont pas vendues à des fins commerciales.",
+            "Le détail des données collectées par cet outil est présenté dans notre politique relative aux cookies et à la mesure d'audience."
+          ]
         },
         {
           "sectionTitle": "Sous-traitants et hébergement",
-          "text": "Le site est hébergé par Netlify, Inc. (États-Unis), qui assure également la réception technique des formulaires de contact et d'adhésion en tant que sous-traitant. Ce transfert de données hors Union Européenne est encadré par les clauses contractuelles types de la Commission européenne / le cadre de protection des données UE-États-Unis (Data Privacy Framework) applicable à Netlify, Inc."
+          "text": [
+            "Le site est hébergé par Netlify, Inc., qui assure également la réception technique des données transmises via les formulaires du site en qualité de prestataire technique.",
+            "L'utilisation de certains prestataires peut entraîner un traitement de données en dehors de l'Union européenne. Les transferts internationaux sont encadrés par les mécanismes prévus par la réglementation applicable et par les engagements contractuels des prestataires concernés."
+          ]
         },
         {
           "sectionTitle": "Réclamation",
           "text": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL : https://www.cnil.fr"
+        }
+      ]
+    },
+    "politiqueCookies": {
+      "title": "Politique relative aux cookies et à la mesure d'audience",
+      "content": [
+        {
+          "sectionTitle": "Cookies",
+          "text": "Le site afoc34.fr n'utilise pas de cookies publicitaires et ne dépose pas de cookies destinés à suivre les visiteurs à des fins de publicité personnalisée."
+        },
+        {
+          "sectionTitle": "Mesure d'audience – Umami",
+          "text": [
+            "Le site utilise Umami afin de mesurer sa fréquentation et d'améliorer son contenu et son fonctionnement.",
+            "Umami est utilisé sans dépôt de cookie. Selon sa documentation officielle, cette solution est conçue pour respecter la vie privée et anonymiser les données de mesure d'audience.",
+            "Les données de mesure d'audience peuvent notamment comprendre :"
+          ],
+          "list": [
+            "les pages consultées",
+            "le navigateur utilisé",
+            "le système d'exploitation",
+            "le type d'appareil",
+            "le pays d'origine de la visite",
+            "la provenance de la visite"
+          ],
+          "after": [
+            "Ces données sont utilisées exclusivement à des fins de mesure d'audience, d'analyse statistique et d'amélioration du site. Aucune donnée issue de cet outil n'est vendue à des fins commerciales et l'AFOC de l'Hérault n'utilise pas Umami pour identifier directement les visiteurs."
+          ]
+        },
+        {
+          "sectionTitle": "Absence de publicité personnalisée",
+          "text": "Le site n'utilise pas de cookies publicitaires et ne met pas en œuvre de suivi des visiteurs à des fins de publicité personnalisée."
+        },
+        {
+          "sectionTitle": "Évolution du site",
+          "text": "Si de nouveaux outils nécessitant l'utilisation de cookies ou de traceurs soumis au consentement sont ajoutés au site, la présente politique sera mise à jour et les mesures nécessaires seront mises en place conformément à la réglementation applicable.",
+          "after": "Dernière mise à jour : 17/08/2026"
         }
       ]
     }

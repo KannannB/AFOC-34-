@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage/LegalPage.astro';
+import siteData from '../data/site.json';
+
+const legalData = siteData.legal.politiqueCookies;
+---
+
+<Layout
+  title={legalData.title}
+  description="Cookies et mesure d'audience (Umami) sur le site de l'AFOC 34."
+>
+  <LegalPage type="politiqueCookies" />
+</Layout>

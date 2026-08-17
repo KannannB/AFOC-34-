@@ -3,7 +3,14 @@
 import siteData from '../../data/site.json';
 
 interface Props {
-  type: 'mentionsLegales' | 'politiqueConfidentialite';
+  type: 'mentionsLegales' | 'politiqueConfidentialite' | 'politiqueCookies';
+}
+
+interface LegalSection {
+  sectionTitle: string;
+  text?: string | string[];
+  list?: string[];
+  after?: string | string[];
 }
 
 const { type } = Astro.props;
@@ -15,7 +22,12 @@ if (!legalPage) {
 }
 
 const title = legalPage.title;
-const content = legalPage.content;
+const content = legalPage.content as LegalSection[];
+
+function asParagraphs(value?: string | string[]): string[] {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
 ---
 
 <div class="legal-hero">
@@ -31,7 +43,19 @@ const content = legalPage.content;
       content.map((section) => (
         <article class="legal-card">
           <h2 class="legal-card-title">{section.sectionTitle}</h2>
-          <p class="legal-card-text">{section.text}</p>
+          {asParagraphs(section.text).map((p) => (
+            <p class="legal-card-text">{p}</p>
+          ))}
+          {section.list && (
+            <ul class="legal-card-list">
+              {section.list.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+          {asParagraphs(section.after).map((p) => (
+            <p class="legal-card-text">{p}</p>
+          ))}
         </article>
       ))
     }
@@ -107,6 +131,30 @@ const content = legalPage.content;
   .legal-card-text {
     color: var(--color-text);
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 0.9rem;
+  }
+  .legal-card-text:last-child {
+    margin-bottom: 0;
+  }
+  .legal-card-list {
+    margin: 0 0 0.9rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .legal-card-list li {
+    color: var(--color-text);
+    line-height: 1.6;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .legal-card-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-rouge);
+    font-weight: bold;
   }
 </style>
