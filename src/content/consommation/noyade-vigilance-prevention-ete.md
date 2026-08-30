@@ -1,7 +1,9 @@
 ---
 title: "Noyade : la vigilance reste la meilleure protection"
 date: 2026-08-14T10:00:00.000+02:00
-image: /img/articles/noyades.jpg
+image: noyades.jpg
+seoTitle: "Noyade : prévention et vigilance pendant l'été"
+seoDescription: "Chaque été, les noyades font des centaines de victimes. L'AFOC rappelle les réflexes de prévention et l'importance d'équipements de flottaison fiables."
 description: "Chaque été, les noyades font des centaines de victimes en France, touchant aussi bien les enfants que les adultes et les seniors. L'AFOC rappelle les réflexes essentiels et insiste sur la qualité des équipements de flottaison vendus aux consommateurs."
 ---
 Chaque été, les noyades font des centaines de victimes en France. Selon les autorités sanitaires, elles constituent l'une des premières causes de décès accidentel chez les enfants, mais elles touchent également les adultes et les personnes âgées.

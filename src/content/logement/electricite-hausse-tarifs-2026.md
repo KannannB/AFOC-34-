@@ -1,7 +1,9 @@
 ---
 title: "Électricité : une hausse des tarifs qui contredit les promesses de stabilité"
 date: 2026-08-05T10:00:00.000+02:00
-image: /img/articles/electricite.jpg
+image: electricite.jpg
+seoTitle: "Électricité : hausse des tarifs réglementés en 2026"
+seoDescription: "Les tarifs réglementés de l'électricité ont augmenté de 2,5 % au 1er août 2026, soit environ 26 € par an. L'AFOC dénonce une promesse de stabilité non tenue."
 description: "Les tarifs réglementés de l'électricité ont augmenté de 2,5 % au 1er août, soit environ 26 euros de plus par an pour un foyer moyen. L'AFOC dénonce cette hausse qui contredit les promesses de stabilité tarifaire des pouvoirs publics et fragilise davantage le pouvoir d'achat des ménages."
 ---
 Depuis le 1er août, les tarifs réglementés de vente de l'électricité ont augmenté en moyenne de 2,5 % pour les particuliers. Cette décision, prise sur proposition de la Commission de régulation de l'énergie (CRE) et validée par le Gouvernement, représente une hausse d'environ 26 euros par an pour un foyer moyen.

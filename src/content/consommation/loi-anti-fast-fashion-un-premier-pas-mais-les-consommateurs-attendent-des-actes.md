@@ -2,7 +2,9 @@
 title: "Loi anti-fast fashion : un premier pas, mais les consommateurs attendent
   des actes"
 date: 2026-08-10T17:31:00.000+02:00
-image: /img/articles/pexels-hangers-1850082_1280.jpg
+image: pexels-hangers-1850082_1280.jpg
+seoTitle: "Loi anti-fast fashion : une avancée encore fragile"
+seoDescription: "Bonus-malus environnemental, publicité encadrée, information du consommateur : l'AFOC salue la loi anti-fast fashion mais attend des contrôles réels."
 description: "La loi anti-fast fashion promulguée début juillet encadre les
   pratiques des enseignes les plus polluantes via un système de bonus-malus
   environnemental, des restrictions publicitaires et une meilleure information

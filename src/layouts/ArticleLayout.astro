@@ -1,16 +1,31 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from './Layout.astro';
 interface Props {
   title: string;
+  seoTitle?: string;
   description: string;
+  seoDescription?: string;
   image?: string;
   tag: string;
   date: Date;
   backHref: string;
 }
-const { title, description, image, tag, date, backHref } = Astro.props;
+const { title, seoTitle, description, seoDescription, image, tag, date, backHref } = Astro.props;
+
+// Article cover images live in src/assets/articles and are optimised by Astro.
+// Frontmatter stores the file name only (e.g. "incendie.jpg").
+const articleImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/articles/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+const cover = image ? articleImages[`/src/assets/articles/${image}`]?.default : undefined;
 ---
-<Layout title={title} description={description} image={image}>
+<Layout
+  title={seoTitle ?? title}
+  description={seoDescription ?? description}
+  image={cover?.src}
+>
   <div class="max-w-3xl px-4 py-12 mx-auto">
     <nav class="mb-8 text-sm text-gray-500">
       <a href="/" class="hover:text-[var(--color-bleu)]">Accueil</a>
@@ -34,10 +49,12 @@ const { title, description, image, tag, date, backHref } = Astro.props;
           {description}
         </p>
       )}
-      {image && (
-        <img
-          src={image}
+      {cover && (
+        <Image
+          src={cover}
           alt={title}
+          loading="eager"
+          fetchpriority="high"
           class="mt-6 w-full rounded-xl object-cover max-h-80"
         />
       )}

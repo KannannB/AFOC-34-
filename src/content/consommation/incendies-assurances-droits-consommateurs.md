@@ -1,7 +1,9 @@
 ---
 title: "Incendies : les consommateurs ne doivent pas être les victimes oubliées des assurances"
 date: 2026-07-28T10:00:00.000+02:00
-image: /img/articles/incendie.jpg
+image: incendie.jpg
+seoTitle: "Incendie : vos droits face à l'assurance"
+seoDescription: "Expertise contestée, délais d'indemnisation, valeur des biens : l'AFOC rappelle les droits des sinistrés d'incendie face à leur assurance."
 description: "Face aux incendies qui ravagent plusieurs régions françaises, l'AFOC alerte sur les difficultés rencontrées par les sinistrés face à leurs assurances : expertises contestées, délais d'indemnisation, désaccords sur la valeur des biens. L'association rappelle les droits essentiels des assurés."
 ---
 Les incendies qui frappent actuellement plusieurs régions françaises rappellent une réalité désormais incontestable : les événements climatiques extrêmes deviennent plus fréquents et plus destructeurs. Derrière les images spectaculaires des forêts en flammes, ce sont des milliers de familles qui perdent parfois leur logement, leur véhicule et l'ensemble de leurs biens.

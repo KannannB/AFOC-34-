@@ -1,7 +1,9 @@
 ---
 title: "Leasing automobile : les points de vigilance avant de s'engager"
 date: 2026-07-17T10:00:00.000+02:00
-image: /img/articles/leasing.jpg
+image: leasing.jpg
+seoTitle: "Leasing auto : les points de vigilance avant de signer"
+seoDescription: "Coût total, risque en cas d'impayé, sinistre, restitution du véhicule : l'AFOC rappelle les points à vérifier avant de signer un leasing automobile."
 description: "Le leasing automobile séduit de plus en plus, notamment depuis le leasing social, mais il implique des engagements souvent sous-estimés. L'AFOC rappelle les points essentiels avant de signer : coût total, risques en cas d'impayé, conséquences d'un sinistre grave et conditions de restitution du véhicule."
 ---
 

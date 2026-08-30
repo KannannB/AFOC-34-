@@ -6,8 +6,11 @@ import '../styles/global.css';
 const { title, description, image } = Astro.props;
 const pageTitle = title ? `${title} | ${siteData.header.logo}` : siteData.header.logo;
 const pageDescription = description || siteData.seo.defaultDescription;
-const pageImage = image || siteData.seo.ogImage;
-const pageUrl = Astro.url.href;
+const siteOrigin = Astro.site?.href ?? 'https://afoc34.fr/';
+const pageImage = new URL(image || siteData.seo.ogImage, siteOrigin).href;
+// build.format: 'file' makes Astro.url end in `.html` — normalise for canonical / og:url.
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+const pageUrl = new URL(cleanPath || '/', siteOrigin).href;
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'NGO',

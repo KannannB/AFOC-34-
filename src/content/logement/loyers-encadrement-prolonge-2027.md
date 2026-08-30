@@ -1,7 +1,9 @@
 ---
 title: "Loyers : un répit pour les locataires, mais une réponse encore insuffisante"
 date: 2026-07-31T10:00:00.000+02:00
-image: /img/articles/loyers.jpg
+image: loyers.jpg
+seoTitle: "Encadrement des loyers prolongé jusqu'en 2027"
+seoDescription: "L'encadrement des loyers en zone tendue est prolongé jusqu'en juillet 2027. L'AFOC salue un filet de protection utile mais juge la réponse insuffisante."
 description: "La prolongation jusqu'en juillet 2027 de l'encadrement des loyers en zone tendue est saluée par l'AFOC comme un filet de protection nécessaire contre les hausses abusives lors des relocations. Mais cette mesure ne suffit pas : l'association appelle à une politique du logement plus ambitieuse."
 ---
 Le Gouvernement a décidé de prolonger jusqu'au 31 juillet 2027 le dispositif d'encadrement de l'évolution des loyers lors d'une relocation ou d'un renouvellement de bail dans les communes en zone tendue. Cette mesure constitue une protection indispensable dans un contexte où le logement pèse toujours plus lourd dans le budget des ménages.

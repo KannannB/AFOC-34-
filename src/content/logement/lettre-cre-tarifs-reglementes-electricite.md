@@ -1,7 +1,9 @@
 ---
 title: "Lettre à la présidente de la CRE : préserver le libre choix des consommateurs et l'attractivité des tarifs réglementés"
 date: 2026-07-01T10:00:00.000+02:00
-image: /img/articles/lettre-wargon.jpg
+image: lettre-wargon.jpg
+seoTitle: "Tarifs réglementés de l'électricité : lettre à la CRE"
+seoDescription: "Douze associations de consommateurs, dont l'AFOC, alertent la présidente de la CRE sur les risques pesant sur le libre choix entre tarif réglementé et marché."
 description: "Douze associations de consommateurs dont l'AFOC ont adressé une lettre commune à la présidente de la CRE pour alerter sur les risques que font peser les nouveaux principes directeurs sur le libre choix des consommateurs entre tarifs réglementés et offres de marché."
 ---
 Douze associations de consommateurs, dont l'AFOC, ont adressé le 30 juin 2026 une lettre commune à Emmanuelle Wargon, présidente de la Commission de régulation de l'énergie (CRE), concernant les principes directeurs relatifs à la distinction entre les offres aux tarifs réglementés de vente d'électricité (TRVE) et les offres de marché.

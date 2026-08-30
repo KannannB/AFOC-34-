@@ -1,7 +1,9 @@
 ---
 title: "Train : annulation, retard, perte de bagages… Quels sont mes droits ?"
 date: 2023-07-28T10:00:00.000+02:00
-image: /img/articles/train-sncf.jpg
+image: train-sncf.jpg
+seoTitle: "Train : vos droits en cas de retard, annulation, bagages"
+seoDescription: "Retard, annulation ou bagage perdu en train : remboursement, réacheminement et indemnités de 25 à 75 % du billet. L'AFOC fait le point sur vos droits."
 description: "La réglementation européenne protège les passagers ferroviaires en cas d'annulation, de retard ou de perte de bagages. En cas d'annulation, remboursement intégral ou réacheminement sans frais. Les retards ouvrent droit à des indemnisations de 25 % à 75 % du prix du billet selon la durée."
 ---
 La réglementation européenne prévoit un certain nombre de droits dont les passagers peuvent se prévaloir en cas d'annulation, de retard, de perte ou de vol de bagages. L'AFOC vous informe de vos droits.

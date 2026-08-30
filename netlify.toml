@@ -2,6 +2,20 @@
   command = "npm run build"
   publish = "dist"
 
+# Canonicalise URLs without a trailing slash (matches astro trailingSlash: 'never').
+# Old indexed URLs like /adhesion/ are 301-redirected to /adhesion.
+[[redirects]]
+  from = "/:a/"
+  to = "/:a"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:a/:b/"
+  to = "/:a/:b"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
