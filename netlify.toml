@@ -2,19 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
-# Canonicalise URLs without a trailing slash (matches astro trailingSlash: 'never').
-# Old indexed URLs like /adhesion/ are 301-redirected to /adhesion.
-[[redirects]]
-  from = "/:a/"
-  to = "/:a"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:a/:b/"
-  to = "/:a/:b"
-  status = 301
-  force = true
+# Note : la suppression du slash final est gérée nativement par Netlify
+# (les fichiers .html générés par build.format:'file' sont servis sur /page,
+# et /page/ est redirigé automatiquement en 301). Pas de règle custom ici :
+# une règle "/:a/" -> "/:a" boucle car Netlify ignore le slash final dans `from`.
 
 [[headers]]
   for = "/*"
