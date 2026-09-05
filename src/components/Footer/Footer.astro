@@ -45,7 +45,7 @@ const mapUrl =
 
   <div class="footer-bottom">
     <p>{siteData.footer.text}</p>
-    <p class="footer-credit">Développé par Kannann - <span class="footer-credit-brand">K4Y DIGITAL</span></p>
+    <p class="footer-credit">Développé par Kannann - <a href="https://k4ydigital.fr" class="footer-credit-brand" target="_blank" rel="noopener">K4Y DIGITAL</a></p>
   </div>
 </footer>
 
@@ -149,6 +149,10 @@ const mapUrl =
   .footer-credit-brand {
     color: rgba(255, 255, 255, 0.85);
     font-weight: 600;
+    text-decoration: none;
+  }
+  .footer-credit-brand:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {
