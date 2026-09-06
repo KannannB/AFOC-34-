@@ -8,7 +8,12 @@ export default defineConfig({
   build: {
     format: 'file',
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Exclut les pages de confirmation (post-formulaire) de l'index.
+      filter: (page) => !/\/(merci-contact|success)\/?$/.test(page),
+    }),
+  ],
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

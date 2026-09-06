@@ -26,3 +26,14 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.github.com https://www.githubstatus.com blob:; frame-ancestors 'none';"
+
+# Pages de confirmation post-formulaire : hors index (doublon du <meta robots>).
+[[headers]]
+  for = "/merci-contact"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/success"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
